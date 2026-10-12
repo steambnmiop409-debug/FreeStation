@@ -1,0 +1,38 @@
+#@title: 추론(Reasoning) · 테스트 시점 연산 · 강화학습
+#@intro: 사고 사슬(CoT)에서 시작해 검증 가능한 보상 기반 강화학습(RLVR), 추론 시 연산 확장, 자기 개선·자기 대국으로 이어지는 추론 모델 연구 흐름.
+#@section: 프롬프팅 기반 추론
+2201.11903|2022|Wei et al. (Google)|Chain-of-Thought Prompting Elicits Reasoning in Large Language Models|M|CoT,prompting|중간 추론 단계를 예시로 보여주면 충분히 큰 모델의 산술·상식·기호 추론 성능이 크게 오른다는 사고 사슬 논문.
+2205.11916|2022|Kojima et al.|Large Language Models are Zero-Shot Reasoners|M|zero-shot-CoT|‘단계별로 생각해 보자’ 한 문장만으로 예시 없이도 추론이 개선됨을 보인 연구.
+2203.11171|2022|Wang et al. (Google)|Self-Consistency Improves Chain of Thought Reasoning in Language Models|M|self-consistency,sampling|여러 추론 경로를 샘플링해 다수결로 답을 고르는 방법.
+2205.10625|2022|Zhou et al. (Google)|Least-to-Most Prompting Enables Complex Reasoning in Large Language Models|M|least-to-most,decomposition|문제를 하위 문제로 분해해 순차 해결하는 프롬프팅.
+2305.10601|2023|Yao et al.|Tree of Thoughts: Deliberate Problem Solving with Large Language Models|M|ToT,search|추론을 트리로 탐색하고 평가·백트래킹하는 프레임워크.
+2308.09687|2023|Besta et al.|Graph of Thoughts: Solving Elaborate Problems with Large Language Models|M|GoT,graph-reasoning|생각을 그래프로 표현해 결합·정제 연산을 허용하는 확장.
+2502.18600|2025|Xu et al.|Chain of Draft: Thinking Faster by Writing Less|V|Chain-of-Draft,token-efficiency|각 추론 단계를 짧게(약 5단어 이내) 쓰도록 유도하는 프롬프팅. CoT와 비슷하거나 더 높은 정확도를 최소 7.6%의 토큰으로 달성한다고 보고(후속 연구는 어려운 과제에서 성능 저하를 지적).
+2310.01798|2023|Huang et al.|Large Language Models Cannot Self-Correct Reasoning Yet|M|self-correction,limitations|외부 피드백 없는 내재적 자기 교정은 추론 성능을 개선하지 못하거나 오히려 해칠 수 있음을 보인 비판적 연구.
+2303.17651|2023|Madaan et al.|Self-Refine: Iterative Refinement with Self-Feedback|M|self-refine|모델이 스스로 피드백을 생성하고 반복 개선하는 방법.
+2303.11366|2023|Shinn et al.|Reflexion: Language Agents with Verbal Reinforcement Learning|M|Reflexion,verbal-RL|과거 실패에 대한 언어적 반성을 메모리에 쌓아 다음 시도를 개선하는 에이전트.
+#@section: 검증기·프로세스 보상
+2110.14168|2021|Cobbe et al. (OpenAI)|Training Verifiers to Solve Math Word Problems|M|GSM8K,verifier|GSM8K 데이터셋과, 여러 후보 풀이를 학습된 검증기로 순위화하는 방법.
+2211.14275|2022|Uesato et al. (DeepMind)|Solving math word problems with process- and outcome-based feedback|M|process-supervision|최종 답만 보는 결과 감독과 단계별 과정 감독을 비교한 연구.
+2305.20050|2023|Lightman et al. (OpenAI)|Let's Verify Step by Step|M|PRM800K,process-reward-model|단계별 인간 라벨로 학습한 과정 보상 모델이 결과 보상 모델보다 수학 풀이 선별에 낫다는 결과와 PRM800K 데이터.
+2312.08935|2023|Wang et al.|Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations|M|Math-Shepherd,automatic-PRM|사람 라벨 없이 몬테카를로 롤아웃으로 단계 보상을 자동 생성.
+2203.14465|2022|Zelikman et al.|STaR: Bootstrapping Reasoning With Reasoning|M|STaR,self-training|정답에 이른 자기 생성 추론 과정만 골라 재학습하며 추론 능력을 부트스트랩.
+2403.09629|2024|Zelikman et al.|Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking|V|Quiet-STaR,implicit-reasoning|매 토큰마다 내부 사고(rationale)를 생성해 미래 텍스트 예측을 돕도록 학습. 지속 사전학습 후 제로샷으로 GSM8K 5.9→10.9%, CommonsenseQA 36.3→47.2%를 보고.
+#@section: 테스트 시점 연산 확장
+2408.03314|2024|Snell et al.|Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters|V|test-time-compute,compute-optimal|검증기 탐색과 출력 분포 적응 두 방식을 분석하고 문제 난이도에 따라 추론 연산을 배분하는 ‘연산 최적’ 전략이 best-of-N 대비 4배 이상 효율적이라고 보고.
+2501.19393|2025|Muennighoff et al.|s1: Simple test-time scaling|V|s1,budget-forcing,s1K|1,000개 문제(s1K)로 Qwen2.5-32B-Instruct를 미세조정하고 ‘Wait’ 삽입/종료 강제(budget forcing)로 사고 길이를 조절. AIME24 정확도 50→57%로 확장되며 o1-preview를 최대 27% 앞선다고 보고.
+2412.04604|2024|Chollet et al.|ARC Prize 2024: Technical Report|V|ARC-AGI,program-synthesis,test-time-training|ARC-AGI 비공개 평가 최고 점수가 33%→55.5%로 상승. 딥러닝 유도 프로그램 합성과 테스트 시점 학습이 핵심 기법이었다.
+2601.10904|2026|-|ARC Prize 2025: Technical Report|V|ARC-AGI,technical-report|ARC Prize 2025 대회 기술 보고서(ID·제목만 확인).
+2504.16084|2025|-|TTRL: Test-Time Reinforcement Learning|V|test-time-RL|정답 레이블 없이 테스트 시점에서 강화학습을 하는 접근(ID·제목만 확인).
+#@section: 강화학습 기반 추론 모델
+1707.06347|2017|Schulman et al. (OpenAI)|Proximal Policy Optimization Algorithms|M|PPO|클리핑된 목적함수를 쓰는 정책 경사 알고리즘. RLHF의 표준 기반 알고리즘.
+1706.03741|2017|Christiano et al.|Deep Reinforcement Learning from Human Preferences|M|RLHF,reward-model|인간의 쌍별 선호로 보상 모델을 학습해 RL에 쓰는 RLHF의 원형.
+2402.14740|2024|Ahmadian et al. (Cohere)|Back to Basics: Revisiting REINFORCE Style Optimization for Learning from Human Feedback in LLMs|V|RLOO,REINFORCE|PPO의 복잡한 구성요소 없이 REINFORCE 계열(RLOO)이 더 단순하고 효과적일 수 있음을 보인 연구.
+2402.03300|2024|Shao et al. (DeepSeek)|DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models|M|GRPO,math|가치 함수 없이 그룹 상대 보상으로 정책을 갱신하는 GRPO를 제안하고 수학 특화 사전학습 데이터를 구축.
+2503.14476|2025|Yu et al. (ByteDance)|DAPO: An Open-Source LLM Reinforcement Learning System at Scale|V|DAPO,RLVR,GRPO-variant|Decoupled Clip과 Dynamic Sampling 등 4가지 기법으로 Qwen2.5-32B 기반 AIME 2024 50점 달성. 소박한 GRPO는 30점에 그쳤고 원인은 엔트로피 붕괴·보상 잡음·불안정이라고 분석.
+2503.20783|2025|Liu et al.|Understanding R1-Zero-Like Training: A Critical Perspective|V|Dr-GRPO,R1-Zero|R1-Zero식 학습을 기반 모델과 RL 두 측면에서 분석. GRPO의 길이 편향(오답 응답이 길어짐)을 지적하고 Dr. GRPO를 제안, 최소 레시피로 AIME 2024 43.3%를 보고.
+2503.18892|2025|-|SimpleRL-Zoo: Investigating and Taming Zero Reinforcement Learning for Open Base Models in the Wild|V|zero-RL,base-models|다양한 기반 모델에서 ‘zero RL’ 학습을 조사한 연구(ID·제목만 확인).
+2505.03335|2025|Zhao et al. (Tsinghua)|Absolute Zero: Reinforced Self-play Reasoning with Zero Data|V|Absolute-Zero,self-play,code-executor|하나의 모델이 스스로 과제를 제안하고 풀며 외부 데이터 없이 학습하는 패러다임. 코드 실행기로 검증 가능한 피드백을 얻는 AZR이 코딩·수학에서 ‘zero’ 모델들을 앞선다고 보고.
+2506.24119|2025|-|SPIRAL: Self-Play on Zero-Sum Games Incentivizes Reasoning via Multi-Agent Multi-Turn Reinforcement Learning|V|self-play,zero-sum-games|제로섬 게임 자기 대국으로 추론을 유도하는 연구(ID·제목만 확인).
+1712.01815|2017|Silver et al. (DeepMind)|Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm|M|AlphaZero,self-play|바둑·체스·쇼기를 규칙만으로 자기 대국 학습하는 AlphaZero의 범용 알고리즘.
+1911.08265|2019|Schrittwieser et al. (DeepMind)|Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model|M|MuZero,model-based-RL|환경 규칙 없이 학습된 모델로 계획하는 MuZero.

@@ -1,0 +1,43 @@
+#@title: 전문가 혼합(MoE) · 효율적 어텐션 · 장문 컨텍스트
+#@intro: 활성 파라미터를 줄이는 희소 모델, 어텐션 연산·메모리를 줄이는 알고리즘과 하드웨어 최적화, 위치 인코딩 확장을 통한 긴 컨텍스트 처리 기술.
+#@section: 전문가 혼합(MoE)
+1701.06538|2017|Shazeer et al. (Google)|Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer|M|MoE,sparse-gating|희소 게이팅 MoE 층을 LSTM에 적용해 연산량 증가 없이 파라미터를 1000배 이상 늘릴 수 있음을 보인 현대 MoE의 출발점.
+2006.16668|2020|Lepikhin et al. (Google)|GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding|M|MoE,sharding,translation|MoE Transformer를 자동 샤딩으로 6000억 파라미터까지 확장해 다국어 번역에 적용.
+2101.03961|2021|Fedus et al. (Google)|Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity|M|Switch,top-1-routing|토큰당 전문가 1개만 선택(top-1)하는 단순화된 라우팅으로 안정성과 효율을 높여 조 단위 파라미터까지 확장.
+2202.08906|2022|Zoph et al. (Google)|ST-MoE: Designing Stable and Transferable Sparse Expert Models|M|MoE,stability,router-z-loss|MoE 학습 불안정을 줄이는 라우터 z-loss 등 설계 지침과 전이 성능 분석.
+2202.09368|2022|Zhou et al. (Google)|Mixture-of-Experts with Expert Choice Routing|V|expert-choice,load-balancing|토큰이 전문가를 고르는 대신 전문가가 토큰을 고르게 해 부하 균형을 자동으로 맞추는 라우팅.
+2305.14705|2023|Shen et al.|Mixture-of-Experts Meets Instruction Tuning: A Winning Combination for Large Language Models|V|MoE,instruction-tuning|MoE 모델이 dense 모델보다 지시 튜닝으로 더 크게 이득을 본다는 실험 결과.
+2401.06066|2024|Dai et al. (DeepSeek)|DeepSeekMoE: Towards Ultimate Expert Specialization in Mixture-of-Experts Language Models|M|DeepSeekMoE,fine-grained-experts,shared-experts|전문가를 세분화하고 일부를 공유 전문가로 분리해 전문화를 높이는 MoE 설계.
+2408.15664|2024|Wang et al. (DeepSeek)|Auxiliary-Loss-Free Load Balancing Strategy for Mixture-of-Experts|V|load-balancing,bias-routing|보조 손실의 간섭 기울기 없이, 전문가별 편향을 사용 빈도에 따라 조정해 부하를 균형화(1B·3B MoE 실험에서 기존 방식보다 성능·균형 모두 우수).
+2409.02060|2024|Muennighoff et al. (AI2)|OLMoE: Open Mixture-of-Experts Language Models|V|OLMoE,open-MoE|총 7B·활성 약 1B의 완전 개방형 MoE. 5조 토큰으로 사전학습하고 가중치·데이터·코드·로그를 모두 공개.
+#@section: 효율적 어텐션 알고리즘·하드웨어 최적화
+1911.02150|2019|Shazeer (Google)|Fast Transformer Decoding: One Write-Head is All You Need|M|MQA,decoding,KV-cache|모든 헤드가 하나의 키·값을 공유하는 Multi-Query Attention으로 디코딩 시 메모리 대역폭 부담을 줄임.
+2305.13245|2023|Ainslie et al. (Google)|GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints|M|GQA,KV-cache|MHA와 MQA 사이의 그룹 질의 어텐션. 기존 MHA 체크포인트를 적은 추가 학습으로 변환 가능해 널리 채택됐다.
+2205.14135|2022|Dao et al.|FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness|M|FlashAttention,IO-aware,tiling|GPU 메모리 계층(IO)을 고려한 타일링으로 정확한 어텐션을 더 빠르고 메모리 효율적으로 계산.
+2307.08691|2023|Dao|FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning|M|FlashAttention-2,GPU|작업 분할과 병렬화를 개선해 FlashAttention보다 약 2배 빠르게 만든 후속 구현.
+2407.08608|2024|Shah et al.|FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision|M|FlashAttention-3,Hopper,FP8|Hopper GPU의 비동기 실행과 저정밀(FP8)을 활용한 최적화.
+2309.06180|2023|Kwon et al. (UC Berkeley)|Efficient Memory Management for Large Language Model Serving with PagedAttention|M|vLLM,PagedAttention,serving|KV 캐시를 OS의 가상 메모리 페이징처럼 관리해 낭비를 줄이는 vLLM의 핵심 기법.
+2310.01889|2023|Liu et al.|Ring Attention with Blockwise Transformers for Near-Infinite Context|M|Ring-Attention,distributed,long-context|블록 단위 계산과 장치 간 링 통신을 겹쳐 시퀀스 길이를 장치 수에 비례해 확장.
+2309.17453|2023|Xiao et al.|Efficient Streaming Language Models with Attention Sinks|M|StreamingLLM,attention-sink|초기 몇 개 토큰이 ‘어텐션 싱크’ 역할을 한다는 관찰로, 유한 캐시만으로 무한 길이 스트리밍 생성을 가능하게 한 방법.
+2009.06732|2020|Tay et al.|Efficient Transformers: A Survey|M|survey,efficient-attention|효율적 Transformer 변형들을 분류·정리한 서베이.
+#@section: 희소·선형 근사 어텐션
+2001.04451|2020|Kitaev et al.|Reformer: The Efficient Transformer|M|LSH-attention,reversible|LSH 어텐션과 가역 층으로 긴 시퀀스의 메모리를 줄인 구조.
+2004.05150|2020|Beltagy et al.|Longformer: The Long-Document Transformer|M|sliding-window,global-attention|슬라이딩 윈도와 일부 전역 토큰을 조합한 선형 비용 어텐션.
+2006.04768|2020|Wang et al.|Linformer: Self-Attention with Linear Complexity|M|low-rank,linear-attention|어텐션 행렬이 저랭크임을 이용해 키·값을 투영 압축.
+2007.14062|2020|Zaheer et al.|Big Bird: Transformers for Longer Sequences|M|sparse-attention|랜덤·윈도·전역 어텐션을 결합한 희소 어텐션과 이론적 표현력 분석.
+2009.14794|2020|Choromanski et al.|Rethinking Attention with Performers|M|FAVOR+,linear-attention|랜덤 특성으로 소프트맥스 어텐션을 선형 시간에 근사(FAVOR+).
+2307.02486|2023|Ding et al. (Microsoft)|LongNet: Scaling Transformers to 1,000,000,000 Tokens|M|dilated-attention,long-context|확장(dilated) 어텐션으로 이론상 10억 토큰까지 선형 비용을 주장한 구조.
+2502.11089|2025|Yuan et al. (DeepSeek)|Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention|V|NSA,sparse-attention,hardware-aligned|거친 토큰 압축과 정밀 토큰 선택을 결합한 희소 어텐션. 하드웨어 정렬 커널과 종단간 학습 가능성으로 사전학습 연산도 줄인다(ACL 2025).
+2502.13189|2025|Lu et al. (Moonshot AI)|MoBA: Mixture of Block Attention for Long-Context LLMs|V|MoBA,block-attention,MoE-style|어텐션에 MoE식 게이팅을 적용해 질의가 관련 블록만 고르게 하는 ‘적은 구조’ 원칙의 장문 어텐션.
+#@section: 위치 인코딩과 컨텍스트 확장
+2104.09864|2021|Su et al.|RoFormer: Enhanced Transformer with Rotary Position Embedding|M|RoPE,positional-encoding|위치를 회전 행렬로 인코딩해 상대 위치 정보를 자연스럽게 반영하는 RoPE. 현대 LLM의 사실상 표준.
+2108.12409|2021|Press et al.|Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation|M|ALiBi,length-extrapolation|거리에 비례한 선형 편향으로 학습 길이보다 긴 입력에 외삽하는 ALiBi.
+2306.15595|2023|Chen et al.|Extending Context Window of Large Language Models via Positional Interpolation|M|position-interpolation,RoPE|RoPE 위치를 보간해 짧은 추가 미세조정만으로 컨텍스트 창을 확장.
+2309.00071|2023|Peng et al.|YaRN: Efficient Context Window Extension of Large Language Models|M|YaRN,RoPE-scaling|주파수별로 보간 정도를 달리하는 RoPE 확장 기법.
+2402.13753|2024|Ding et al. (Microsoft)|LongRoPE: Extending LLM Context Window Beyond 2 Million Tokens|V|LongRoPE,context-extension|RoPE의 비균일 재조정 탐색과 점진적 2단계 확장으로 약 1천 스텝 미세조정만에 2048k 토큰까지 확장(LLaMA2·Mistral 실험).
+2501.15383|2025|Qwen Team|Qwen2.5-1M Technical Report|V|Qwen2.5-1M,long-context|Qwen2.5를 100만 토큰 컨텍스트로 확장한 기술 보고서(ID·제목만 확인).
+2503.17407|2025|-|A Comprehensive Survey on Long Context Language Modeling|V|survey,long-context|장문 컨텍스트 언어모델링 전반을 다룬 서베이(ID·제목만 확인).
+#@section: 장문 평가
+2307.03172|2023|Liu et al.|Lost in the Middle: How Language Models Use Long Contexts|M|long-context,position-bias|관련 정보가 문맥 중간에 있을 때 성능이 크게 떨어지는 U자 패턴을 보인 분석.
+2404.06654|2024|Hsieh et al. (NVIDIA)|RULER: What's the Real Context Size of Your Long-Context Language Models?|M|RULER,long-context-eval|단순 needle 검색을 넘어 다중 키·추적·집계 과제를 포함한 합성 장문 벤치마크. ‘주장된’ 컨텍스트 길이보다 실효 길이가 짧은 모델이 많음을 보였다.
+2308.14508|2023|Bai et al.|LongBench: A Bilingual, Multitask Benchmark for Long Context Understanding|V|LongBench,benchmark|이중언어·다과업 장문 이해 벤치마크.

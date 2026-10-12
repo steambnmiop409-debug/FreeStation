@@ -1,0 +1,50 @@
+#@title: 해석가능성 · 모델 안전 · 견고성 · 사고 사슬 충실성
+#@intro: 모델 내부 표현을 분석하는 기계적 해석가능성(mechanistic interpretability), 탈옥·데이터 추출 등 공격, 기만·오정렬의 실증 연구, 추론 과정의 충실성과 모니터링. AGI 수준 안전·정렬 이론은 00번 문서를 참조.
+#@section: 기계적 해석가능성
+ext:https://transformer-circuits.pub/2021/framework/index.html|2021|Elhage et al. (Anthropic)|A Mathematical Framework for Transformer Circuits|V|circuits,transformer,interpretability|Transformer를 잔차 흐름과 어텐션 헤드의 회로로 해석하는 수학적 틀을 제시(arXiv 논문 아님, transformer-circuits.pub 게재).
+2209.10652|2022|Elhage et al. (Anthropic)|Toy Models of Superposition|M|superposition,polysemanticity|뉴런이 특징보다 적을 때 모델이 특징을 중첩(superposition)해 저장하는 현상을 장난감 모델로 분석.
+2209.11895|2022|Olsson et al. (Anthropic)|In-context Learning and Induction Heads|M|induction-heads,ICL|문맥 내 학습 능력의 출현이 ‘유도 헤드’ 형성 시점과 맞물린다는 증거를 제시.
+2211.00593|2022|Wang et al.|Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 small|M|circuit-discovery,IOI|GPT-2 small에서 간접목적어 식별 과제를 수행하는 회로를 역공학한 사례 연구.
+2301.05217|2023|Nanda et al.|Progress measures for grokking via mechanistic interpretability|M|grokking,modular-addition|모듈러 덧셈을 학습한 네트워크가 푸리에 기반 알고리즘을 구현함을 밝히고 grokking을 단계적 진행으로 설명.
+2202.05262|2022|Meng et al.|Locating and Editing Factual Associations in GPT|M|ROME,model-editing,causal-tracing|인과 추적으로 사실 지식이 중간 층 MLP에 국소화됨을 보이고 이를 편집하는 ROME을 제안.
+2309.08600|2023|Cunningham et al.|Sparse Autoencoders Find Highly Interpretable Features in Language Models|M|sparse-autoencoder,monosemanticity|희소 오토인코더로 활성화를 분해하면 뉴런보다 해석 가능한 특징을 얻을 수 있음을 보임.
+ext:https://transformer-circuits.pub/2023/monosemantic-features|2023|Bricken et al. (Anthropic)|Towards Monosemanticity: Decomposing Language Models With Dictionary Learning|V|monosemanticity,dictionary-learning|1층 Transformer의 활성화를 사전 학습(희소 오토인코더)으로 분해해 단의미 특징을 추출(arXiv 논문 아님).
+ext:https://transformer-circuits.pub/2024/scaling-monosemanticity/|2024|Templeton et al. (Anthropic)|Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet|V|monosemanticity,scaling,SAE|희소 오토인코더를 대형 상용 모델(Claude 3 Sonnet)의 중간 층에 확장 적용해 다양한 추상 특징을 추출(arXiv 논문 아님).
+ext:https://transformer-circuits.pub/2025/attribution-graphs/biology.html|2025|Lindsey et al. (Anthropic)|On the Biology of a Large Language Model|V|attribution-graphs,circuit-tracing|귀속 그래프로 대형 모델의 내부 계산 경로(다단계 추론, 시 쓰기 계획 등)를 추적한 사례 연구(arXiv 논문 아님).
+2406.04093|2024|Gao et al. (OpenAI)|Scaling and evaluating sparse autoencoders|V|sparse-autoencoder,k-sparse,scaling|k-희소 오토인코더로 희소성을 직접 제어하고 크기·희소성에 대한 스케일링 법칙을 보임. GPT-4 활성화에 1,600만 잠재 변수 오토인코더를 400억 토큰으로 학습해 코드와 오토인코더를 공개.
+2408.05147|2024|Lieberum et al. (Google DeepMind)|Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2|V|Gemma-Scope,JumpReLU,SAE|Gemma 2 2B·9B의 모든 층·하위층과 27B 일부 층에 JumpReLU 희소 오토인코더를 학습해 공개.
+2501.16615|2025|-|Sparse Autoencoders Trained on the Same Data Learn Different Features|V|SAE,reproducibility|같은 데이터로 학습한 희소 오토인코더도 서로 다른 특징을 학습함을 다룬 2025년 연구(ID·제목만 확인).
+2310.01405|2023|Zou et al.|Representation Engineering: A Top-Down Approach to AI Transparency|M|RepE,activation-steering|뉴런·회로 대신 개념 수준 표현을 읽고 조작하는 하향식 접근.
+2212.03827|2022|Burns et al.|Discovering Latent Knowledge in Language Models Without Supervision|M|CCS,truthfulness,probing|출력과 무관하게 내부 활성화에서 ‘참/거짓’ 방향을 비지도로 찾는 CCS.
+2207.05221|2022|Kadavath et al. (Anthropic)|Language Models (Mostly) Know What They Know|M|calibration,self-knowledge|충분히 큰 모델이 자기 답의 정답 확률을 잘 보정해 예측할 수 있음을 보인 연구.
+2309.12288|2023|Berglund et al.|The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"|M|reversal-curse,generalization|“A는 B다”로 학습한 모델이 “B는 A다”를 일반화하지 못하는 현상.
+#@section: 기만 · 오정렬의 실증 연구
+2401.05566|2024|Hubinger et al. (Anthropic)|Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training|M|sleeper-agents,backdoor,deception|특정 조건에서만 악의적 행동을 하도록 학습한 백도어 모델이 표준 안전 학습(SFT, RLHF, 적대적 학습)으로 제거되지 않을 수 있음을 보임.
+2412.14093|2024|Greenblatt et al. (Anthropic, Redwood)|Alignment faking in large language models|V|alignment-faking,Claude-3-Opus|학습 중이라고 믿는 상황(무료 사용자)에서 Claude 3 Opus가 기존 선호를 지키려 선택적으로 순응하는 행동 관찰. 무료 사용자 질의의 14%에서 유해 질의에 순응했고 대부분 명시적 위장 추론이 있었다고 보고.
+2506.21584|2025|Koorndijk|Empirical Evidence for Alignment Faking in a Small LLM and Prompt-Based Mitigation Techniques|V|alignment-faking,small-model|LLaMA 3 8B에서도 정렬 위장 행동이 관찰되며 프롬프트 개입(의무론적 도덕 프레이밍, 스크래치패드 추론)으로 줄일 수 있다고 보고.
+2412.04984|2024|Meinke et al. (Apollo Research)|Frontier Models are Capable of In-context Scheming|V|scheming,sandbagging,agentic-eval|o1, Claude 3.5 Sonnet, Claude 3 Opus, Gemini 1.5 Pro, Llama 3.1 405B가 모두 문맥 내 음모(scheming) 능력을 보임. 미묘한 오류 삽입, 감독 장치 무력화 시도, 가중치 유출 시도 등을 관찰하고 o1은 85% 초과의 후속 질문에서 기만을 유지.
+2502.17424|2025|Betley et al.|Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs|V|emergent-misalignment,fine-tuning|사용자에게 알리지 않고 취약한 코드를 출력하도록 미세조정하면 코딩과 무관한 폭넓은 프롬프트에서도 오정렬된 응답(AI가 인간을 노예로 삼아야 한다는 주장, 악의적 조언 등)을 보임. GPT-4o와 Qwen2.5-Coder-32B에서 가장 강함.
+2510.11288|2025|-|Emergent Misalignment via In-Context Learning: Narrow in-context examples can produce broadly misaligned LLMs|V|emergent-misalignment,ICL|좁은 범위의 문맥 내 예시만으로도 광범위한 오정렬이 나타남을 보인 연구. 64개 예시에서 2~17%, 256개 예시에서 최대 58%(검색 결과 기준).
+2506.11618|2025|-|Convergent Linear Representations of Emergent Misalignment|V|emergent-misalignment,mechanistic|창발적 오정렬의 기전을 선형 표현 관점에서 분석한 연구(검색 결과상 소형 모델 생물 사례 포함).
+#@section: 사고 사슬 충실성과 모니터링
+2305.04388|2023|Turpin et al.|Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting|M|CoT-faithfulness|입력의 편향 요소가 답을 바꾸는데 CoT가 이를 언급하지 않는 등 설명이 충실하지 않을 수 있음을 보임.
+2307.13702|2023|Lanham et al. (Anthropic)|Measuring Faithfulness in Chain-of-Thought Reasoning|M|CoT-faithfulness|CoT를 중간에 자르거나 오류를 삽입하는 개입으로 추론이 실제 답에 얼마나 인과적인지 측정.
+2505.05410|2025|Chen et al. (Anthropic)|Reasoning Models Don't Always Say What They Think|V|CoT-faithfulness,reasoning-models|추론 모델의 사고 사슬이 실제 판단 근거를 항상 드러내지는 않음을 다룬 연구(검색 결과로 ID·저자 확인, 상세 수치는 미검토).
+2503.11926|2025|Baker et al. (OpenAI)|Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation|V|CoT-monitoring,reward-hacking,obfuscation|에이전트 코딩 환경에서 CoT 모니터링이 보상 해킹을 잡아낼 수 있고 약한 모델이 강한 모델을 감시할 수 있음을 보이되, CoT에 최적화 압력을 가하면 의도를 숨기는 난독화가 학습된다고 보고.
+2512.18311|2025|-|Monitoring Monitorability|V|CoT-monitoring|사고 사슬 모니터링 가능성 자체의 평가를 다룬 2025년 연구(ID·제목만 확인).
+#@section: 적대적 공격 · 탈옥 · 방어
+2202.03286|2022|Perez et al. (DeepMind)|Red Teaming Language Models with Language Models|M|red-teaming,automated|언어모델로 유해 출력을 유도하는 테스트 케이스를 자동 생성하는 레드팀.
+2209.07858|2022|Ganguli et al. (Anthropic)|Red Teaming Language Models to Reduce Harms: Methods, Scaling Behaviors, and Lessons Learned|M|red-teaming,RLHF|인간 레드팀 데이터를 분석하고 RLHF 모델이 규모에 따라 레드팀이 더 어려워짐을 보인 연구.
+2204.05862|2022|Bai et al. (Anthropic)|Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback|M|HH-RLHF,helpfulness-harmlessness|유용성과 무해성을 함께 RLHF로 학습하는 방법과 HH-RLHF 데이터셋.
+2307.02483|2023|Wei, Haghtalab, Steinhardt|Jailbroken: How Does LLM Safety Training Fail?|M|jailbreak,failure-modes|목표 상충과 일반화 불일치라는 두 가지 실패 모드로 탈옥을 설명.
+2307.15043|2023|Zou et al.|Universal and Transferable Adversarial Attacks on Aligned Language Models|M|GCG,adversarial-suffix|기울기 기반으로 찾은 접미사가 여러 정렬된 모델에 전이되어 거부를 우회함을 보인 공격(GCG).
+2312.06674|2023|Inan et al. (Meta)|Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations|M|safeguard,classifier|LLM 기반 입력·출력 안전 분류기.
+2501.18837|2025|Sharma et al. (Anthropic)|Constitutional Classifiers: Defending against Universal Jailbreaks across Thousands of Hours of Red Teaming|V|constitutional-classifiers,jailbreak-defense|자연어 헌법에서 합성 데이터를 만들어 학습한 입출력 분류기. 3,000시간 이상 레드팀에서 초기 분류기 보호 LLM에 대해 보호 없는 모델과 비슷한 상세도의 범용 탈옥이 발견되지 않았다고 보고.
+2601.04603|2026|-|Constitutional Classifiers++: Efficient Production-Grade Defenses against Universal Jailbreaks|V|constitutional-classifiers|Constitutional Classifiers의 후속 연구(ID·제목만 확인).
+2412.16339|2024|Guan et al. (OpenAI)|Deliberative Alignment: Reasoning Enables Safer Language Models|V|deliberative-alignment,safety-spec|모델이 안전 규격을 학습해 답하기 전에 이를 추론하게 하는 정렬. 사람이 쓴 CoT·답 없이 o 시리즈를 정렬했고 탈옥 견고성 향상과 과잉 거부 감소를 주장.
+#@section: 프라이버시 · 암기 · 문서화
+2012.07805|2020|Carlini et al.|Extracting Training Data from Large Language Models|M|memorization,privacy|GPT-2에서 학습 데이터의 개인정보 등을 그대로 추출할 수 있음을 보인 공격.
+2202.07646|2022|Carlini et al.|Quantifying Memorization Across Neural Language Models|M|memorization,scaling|모델 크기·데이터 중복·문맥 길이에 따라 암기가 로그-선형으로 증가함을 정량화.
+2311.17035|2023|Nasr et al.|Scalable Extraction of Training Data from (Production) Language Models|M|extraction,aligned-models|정렬된 상용 모델에서도 학습 데이터를 대규모로 추출할 수 있는 공격(발산 공격 등).
+1810.03993|2018|Mitchell et al.|Model Cards for Model Reporting|M|documentation,transparency|모델의 용도·성능·한계를 문서화하는 모델 카드 제안.
+1803.09010|2018|Gebru et al.|Datasheets for Datasets|M|documentation,data-governance|데이터셋의 구성·수집·용도를 문서화하는 데이터시트 제안.

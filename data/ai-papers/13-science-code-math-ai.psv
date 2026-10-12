@@ -1,0 +1,27 @@
+#@title: 과학 · 코드 · 수학을 위한 AI
+#@intro: 기상·의학·단백질·재료 같은 과학 분야 파운데이션 모델, 코드 생성 모델, 수학·정리 증명 모델. 자동 과학 에이전트(AI Scientist, AlphaEvolve)는 08·00번 문서 참조.
+#@section: 기상·지구과학
+2212.12794|2022|Lam et al. (Google DeepMind)|GraphCast: Learning skillful medium-range global weather forecasting|M|GraphCast,weather,GNN|그래프 신경망으로 전 지구 중기 일기예보를 수 분 안에 생성하는 모델.
+2211.02556|2022|Bi et al. (Huawei)|Pangu-Weather: A 3D High-Resolution Model for Fast and Accurate Global Weather Forecast|V|Pangu-Weather,3D-transformer|3차원 Transformer 기반 전 지구 기상 예측 모델.
+2312.15796|2023|Price et al. (Google DeepMind)|GenCast: Diffusion-based ensemble forecasting for medium-range weather|V|GenCast,diffusion,ensemble|확산 모델로 앙상블 기상 예측을 생성하는 GenCast.
+2405.13063|2024|Bodnar et al. (Microsoft)|Aurora: A Foundation Model of the Atmosphere|V|Aurora,foundation-model,weather|100만 시간 이상의 다양한 기상·기후 데이터로 학습한 13억 파라미터 대기 파운데이션 모델(3D Swin Transformer + Perceiver 인코더·디코더). 5일 대기오염과 10일 고해상도 기상 예측을 1분 이내에 수행한다고 보고.
+#@section: 의학 · 과학 언어모델
+2211.09085|2022|Taylor et al. (Meta)|Galactica: A Large Language Model for Science|V|Galactica,scientific-LLM|과학 문헌·수식·단백질 서열로 학습한 과학용 LLM. 공개 직후 환각 문제로 데모가 중단된 사례로도 알려짐.
+2212.13138|2022|Singhal et al. (Google)|Large Language Models Encode Clinical Knowledge|M|Med-PaLM,medical-QA|의학 질의응답 벤치마크(MultiMedQA)와 지시 프롬프트 튜닝을 거친 Med-PaLM 보고.
+2305.09617|2023|Singhal et al. (Google)|Towards Expert-Level Medical Question Answering with Large Language Models|M|Med-PaLM-2|미국 의사면허시험(USMLE)식 문제에서 전문가 수준 성능을 주장한 Med-PaLM 2.
+ext:https://doi.org/10.1038/s41586-021-03819-2|2021|Jumper et al. (DeepMind)|Highly accurate protein structure prediction with AlphaFold|V|AlphaFold2,protein-structure|아미노산 서열에서 단백질 3차원 구조를 높은 정확도로 예측한 AlphaFold 2(Nature, arXiv 논문 아님).
+ext:https://doi.org/10.1038/s41586-024-07487-w|2024|Abramson et al. (Google DeepMind)|Accurate structure prediction of biomolecular interactions with AlphaFold 3|V|AlphaFold3,biomolecules|단백질뿐 아니라 핵산·리간드 등 생체분자 복합체의 구조를 예측(Nature, arXiv 논문 아님).
+ext:https://doi.org/10.1038/s41586-023-06735-9|2023|Merchant et al. (Google DeepMind)|Scaling deep learning for materials discovery|V|GNoME,materials|그래프 네트워크로 수백만 개의 새로운 안정 결정 후보를 예측한 GNoME(Nature, arXiv 논문 아님).
+#@section: 코드 생성 모델
+2107.03374|2021|Chen et al. (OpenAI)|Evaluating Large Language Models Trained on Code|M|Codex,HumanEval|GitHub 코드로 미세조정한 Codex와 코드 생성 평가 벤치마크 HumanEval 제안.
+2203.07814|2022|Li et al. (DeepMind)|Competition-Level Code Generation with AlphaCode|M|AlphaCode,competitive-programming|대량 샘플링과 필터링·군집화로 프로그래밍 대회 문제를 푸는 AlphaCode.
+2305.06161|2023|Li et al. (BigCode)|StarCoder: may the source be with you!|M|StarCoder,open-code-LLM|허가형 라이선스 코드로 학습한 15B 오픈 코드 모델.
+2308.12950|2023|Rozière et al. (Meta)|Code Llama: Open Foundation Models for Code|M|Code-Llama,infilling|Llama 2를 코드로 추가 학습하고 중간 채우기·긴 컨텍스트를 지원하는 코드 모델.
+2409.12186|2024|Hui et al. (Qwen)|Qwen2.5-Coder Technical Report|M|Qwen2.5-Coder,code-LLM|Qwen2.5 기반 코드 특화 모델 시리즈 보고서.
+#@section: 수학 · 정리 증명
+2206.14858|2022|Lewkowycz et al. (Google)|Solving Quantitative Reasoning Problems with Language Models|M|Minerva,STEM|수학·과학 텍스트로 추가 학습한 Minerva로 정량적 추론 성능을 높임.
+2310.10631|2023|Azerbayev et al.|Llemma: An Open Language Model For Mathematics|M|Llemma,math-LLM|수학 코퍼스로 Code Llama를 추가 학습한 오픈 수학 모델.
+2409.12122|2024|Qwen Team|Qwen2.5-Math Technical Report: Toward Mathematical Expert Model via Self-Improvement|V|Qwen2.5-Math,self-improvement|자기 개선을 통해 수학 전문 모델을 만든 Qwen2.5-Math 기술 보고서.
+2504.21801|2025|Ren et al. (DeepSeek)|DeepSeek-Prover-V2: Advancing Formal Mathematical Reasoning via Reinforcement Learning for Subgoal Decomposition|V|Lean,theorem-proving,subgoal|DeepSeek-V3로 증명을 하위 목표로 분해하고 강화학습을 적용하는 형식 증명 모델. 671B 모델에서 RL을 하고 7B는 증류 후 RL(검색 결과 기준).
+ext:https://doi.org/10.1038/s41586-023-06924-6|2023|Romera-Paredes et al. (Google DeepMind)|Mathematical discoveries from program search with large language models|V|FunSearch,program-search|LLM으로 프로그램을 진화시키고 평가기로 걸러 수학적 새 구성(예: cap set 문제)을 발견한 FunSearch(Nature, arXiv 논문 아님).
+ext:https://doi.org/10.1038/s41586-023-06747-5|2024|Trinh et al. (Google DeepMind)|Solving olympiad geometry without human demonstrations|V|AlphaGeometry,neuro-symbolic|합성 증명 데이터로 학습한 언어모델과 기호 엔진을 결합해 올림피아드 기하 문제를 해결(Nature, arXiv 논문 아님).

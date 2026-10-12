@@ -1,0 +1,72 @@
+#@title: 트랜스포머 이후의 아키텍처 (SSM · 선형 어텐션 · 순환 · 확산 언어모델 · 잠재 추론)
+#@intro: 2^n 비용의 어텐션을 대체·보완하려는 상태공간모델, 선형 어텐션, 하이브리드, 테스트 시점 학습 메모리, 확산 기반 언어모델, 연속 잠재공간 추론 등 차세대 구조 연구.
+#@section: 기준점
+1706.03762|2017|Vaswani et al. (Google)|Attention Is All You Need|M|Transformer,self-attention|순환·합성곱 없이 어텐션만으로 구성한 Transformer를 제안한 논문. 이후 거의 모든 대형 모델의 기반 구조.
+1807.03819|2018|Dehghani et al.|Universal Transformers|M|recurrence,adaptive-depth|층을 공유해 반복 적용하고 토큰별로 계산 깊이를 조절하는 Transformer. 최근의 깊이 반복(recurrent depth) 연구의 선행 아이디어.
+2002.05202|2020|Shazeer (Google)|GLU Variants Improve Transformer|M|FFN,SwiGLU|FFN에 게이트 선형 유닛(GLU) 변형을 쓰면 품질이 개선됨을 보인 짧은 논문. SwiGLU는 이후 LLM의 표준이 됐다.
+1910.07467|2019|Zhang & Sennrich|Root Mean Square Layer Normalization|M|RMSNorm,normalization|평균 제거 없이 RMS로만 정규화해 LayerNorm보다 간단하고 빠른 RMSNorm 제안. Llama 등이 채택.
+#@section: 상태공간모델(SSM)과 Mamba 계열
+2008.07669|2020|Gu et al.|HiPPO: Recurrent Memory with Optimal Polynomial Projections|M|SSM,memory|연속 신호의 과거를 다항식 기저로 최적 투영해 긴 기억을 유지하는 순환 메모리 이론. S4의 기반.
+2111.00396|2021|Gu et al.|Efficiently Modeling Long Sequences with Structured State Spaces|M|S4,SSM,long-sequence|구조화된 상태공간 층(S4)으로 매우 긴 시퀀스를 효율적으로 처리한 논문. Long Range Arena 등에서 두각.
+2212.14052|2022|Fu et al.|Hungry Hungry Hippos: Towards Language Modeling with State Space Models|M|H3,SSM,language-modeling|언어모델링에서 SSM이 부족했던 회상·비교 능력을 보강한 H3 층과 이를 위한 FlashConv 구현.
+2302.10866|2023|Poli et al.|Hyena Hierarchy: Towards Larger Convolutional Language Models|M|Hyena,long-convolution|어텐션을 긴 합성곱과 게이팅으로 대체한 준2차 이하 비용의 연산자.
+2312.00752|2023|Gu & Dao|Mamba: Linear-Time Sequence Modeling with Selective State Spaces|V|Mamba,selective-SSM,linear-time|입력에 따라 SSM 파라미터가 달라지는 선택적 상태공간 모델. 시퀀스 길이에 선형으로 확장되며 3B 모델이 같은 크기 Transformer를 능가하고 2배 큰 모델에 필적한다고 보고(언어·오디오·유전체).
+2405.21060|2024|Dao & Gu|Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality|V|Mamba-2,SSD,duality|SSM과 마스킹된 어텐션 사이의 구조적 이중성(SSD)을 밝히고 이를 이용한 Mamba-2 층을 제안.
+2401.13660|2024|Wang et al. (Cornell)|MambaByte: Token-free Selective State Space Model|V|byte-level,tokenizer-free,Mamba|Mamba를 원시 바이트 시퀀스에 적용한 토크나이저 없는 모델. 바이트 수준 모델 중 효율이 좋고 서브워드 Transformer와 경쟁한다고 보고.
+2401.09417|2024|Zhu et al.|Vision Mamba: Efficient Visual Representation Learning with Bidirectional State Space Model|V|Vision-Mamba,SSM,vision|양방향 SSM을 이미지 패치 시퀀스에 적용한 비전 백본.
+2401.10166|2024|Liu et al.|VMamba: Visual State Space Model|V|VMamba,SSM,vision|2D 선택 스캔으로 이미지에 맞게 Mamba를 변형한 비전 백본.
+#@section: 선형 어텐션·델타 규칙·순환 계열
+2006.16236|2020|Katharopoulos et al.|Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention|M|linear-attention,RNN|커널 특성 맵으로 소프트맥스를 근사해 어텐션을 선형 시간 RNN 형태로 쓸 수 있음을 보인 논문.
+2102.11174|2021|Schlag et al.|Linear Transformers Are Secretly Fast Weight Programmers|M|fast-weights,delta-rule|선형 어텐션이 ‘빠른 가중치’ 프로그래머와 형식적으로 동등함을 보이고 델타 규칙 기반 갱신을 제안.
+2305.13048|2023|Peng et al. (RWKV)|RWKV: Reinventing RNNs for the Transformer Era|M|RWKV,RNN,linear-time|학습은 Transformer처럼 병렬, 추론은 RNN처럼 상수 메모리로 할 수 있는 구조. 최대 14B 규모까지 확장.
+2404.05892|2024|Peng et al. (RWKV)|Eagle and Finch: RWKV with Matrix-Valued States and Dynamic Recurrence|V|RWKV-5,RWKV-6|RWKV를 행렬 값 상태(Eagle)와 데이터 의존적 순환(Finch)으로 개선한 후속 구조.
+2307.08621|2023|Sun et al. (Microsoft)|Retentive Network: A Successor to Transformer for Large Language Models|M|RetNet,retention|병렬·순환·청크 세 가지 계산 형태를 갖는 retention 메커니즘으로 학습 병렬성과 저비용 추론을 동시에 노린 구조.
+2312.06635|2023|Yang et al.|Gated Linear Attention Transformers with Hardware-Efficient Training|V|GLA,linear-attention,gating|데이터 의존 게이트를 갖는 선형 어텐션과 하드웨어 효율적 청크 병렬 학습 알고리즘.
+2402.18668|2024|Arora et al.|Simple linear attention language models balance the recall-throughput tradeoff|V|Based,recall,linear-attention|선형 어텐션과 슬라이딩 윈도 어텐션을 결합해 회상 능력과 처리량의 균형을 맞춘 Based 모델.
+2406.06484|2024|Yang et al.|Parallelizing Linear Transformers with the Delta Rule over Sequence Length|V|DeltaNet,delta-rule,parallel-training|델타 규칙 기반 선형 Transformer(DeltaNet)를 시퀀스 길이 방향으로 병렬 학습하는 알고리즘을 제시해 중간 규모 언어모델링에 실용화.
+2412.06464|2024|Yang, Kautz, Hatamizadeh|Gated Delta Networks: Improving Mamba2 with Delta Rule|V|Gated-DeltaNet,gating,delta-rule|게이팅(빠른 망각)과 델타 규칙(정밀 갱신)을 결합한 구조. 언어모델링·상식추론·문맥 내 검색·길이 외삽에서 Mamba2와 DeltaNet을 앞선다고 보고(ICLR 2025).
+2502.10297|2025|-|DeltaProduct: Increasing the Expressivity of DeltaNet Through Products of Householders|V|DeltaNet,expressivity|DeltaNet의 표현력을 하우스홀더 행렬의 곱으로 확장하는 연구(ID·제목만 확인).
+2403.19887|2024|Lieber et al. (AI21)|Jamba: A Hybrid Transformer-Mamba Language Model|M|Jamba,hybrid,MoE|Transformer·Mamba 층과 MoE를 섞은 하이브리드 대형 모델. 긴 컨텍스트에서 메모리·처리량 이점을 강조.
+2402.19427|2024|De et al. (Google DeepMind)|Griffin: Mixing Gated Linear Recurrences with Local Attention for Efficient Language Models|M|Griffin,Hawk,recurrence|게이트 선형 순환(Hawk)과 지역 어텐션을 혼합한 Griffin. 같은 크기 대비 적은 학습 토큰으로 경쟁력 있는 성능을 보고.
+2405.04517|2024|Beck et al.|xLSTM: Extended Long Short-Term Memory|M|xLSTM,LSTM|지수 게이팅과 행렬 메모리(mLSTM) 등으로 LSTM을 현대적으로 확장한 구조.
+2406.07522|2024|Ren et al. (Microsoft)|Samba: Simple Hybrid State Space Models for Efficient Unlimited Context Language Modeling|V|Samba,hybrid,sliding-window|Mamba·슬라이딩 윈도 어텐션·MLP를 반복 적층한 하이브리드. 순환 상태로 시퀀스를 압축하면서 최근 토큰의 정확한 회상을 유지한다는 설계.
+2411.13676|2024|-|Hymba: A Hybrid-head Architecture for Small Language Models|V|Hymba,hybrid-head,small-model|소형 언어모델용 하이브리드 헤드 구조(ID·제목만 확인).
+2510.04800|2025|-|Hybrid Architectures for Language Models: Systematic Analysis and Design Insights|V|hybrid,analysis|하이브리드 언어모델 구조의 체계적 분석과 설계 통찰을 다룬 2025년 연구(ID·제목만 확인).
+2507.06457|2025|-|A Systematic Analysis of Hybrid Linear Attention|V|hybrid,linear-attention,analysis|선형 어텐션 하이브리드의 체계적 비교 분석(ID·제목만 확인).
+#@section: 테스트 시점 학습(TTT)·장기 메모리
+1901.02860|2019|Dai et al.|Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context|M|segment-recurrence,long-context|세그먼트 수준 순환과 상대 위치 인코딩으로 고정 길이 문맥 한계를 넘은 모델.
+1911.05507|2019|Rae et al. (DeepMind)|Compressive Transformers for Long-Range Sequence Modelling|M|memory,compression|오래된 기억을 압축해 보관하는 Transformer와 PG-19 장문 벤치마크.
+2203.08913|2022|Wu et al. (Google)|Memorizing Transformers|M|kNN-memory,external-memory|과거 (키, 값)을 외부 kNN 메모리에 저장해 추론 시 조회하는 어텐션 확장.
+2203.07852|2022|Hutchins et al.|Block-Recurrent Transformers|M|recurrence,long-context|블록 단위로 순환하며 상태를 전달하는 Transformer 층.
+2207.06881|2022|Bulatov et al.|Recurrent Memory Transformer|M|memory-tokens|메모리 토큰을 세그먼트 사이에 전달하는 순환 메모리 구조.
+2404.07143|2024|Munkhdalai et al. (Google)|Leave No Context Behind: Efficient Infinite Context Transformers with Infini-attention|V|Infini-attention,compressive-memory|지역 마스크 어텐션과 장기 선형 어텐션 메모리를 한 블록에 결합. 1M 토큰 패스키 검색과 50만 토큰 책 요약을 시험(1B·8B).
+2512.23862|2025|-|A Study of Infini-Attention in Small-Scale Pretraining|V|Infini-attention,negative-result|Infini-attention의 소규모 사전학습 재검증. 검색 결과 기준 더 약한 결과가 보고됐다.
+2407.04620|2024|Sun et al.|Learning to (Learn at Test Time): RNNs with Expressive Hidden States|V|TTT,test-time-training,RNN|RNN의 은닉 상태를 작은 모델로 보고 입력 시퀀스에서 직접 경사하강으로 갱신하는 TTT 층(ICML 2025).
+2501.00663|2024|Behrouz, Zhong, Mirrokni (Google)|Titans: Learning to Memorize at Test Time|V|Titans,neural-memory,long-context|추론 중에도 학습되는 장기 신경 메모리를 단기 어텐션과 결합한 Titans. 2M 토큰 이상 needle 과제에서 확장된다고 보고.
+2510.09551|2025|-|Titans Revisited: A Lightweight Reimplementation and Critical Analysis of a Test-Time Memory Model|V|Titans,reproducibility|Titans를 재구현해 보면 청킹 때문에 항상 기존 기준선보다 낫지는 않으며, 공개 코드 부재와 설명의 모호함이 재현을 어렵게 한다고 지적.
+2505.23735|2025|-|Atlas: Learning to Optimally Memorize the Context at Test Time|V|Atlas,test-time-memory|테스트 시점 문맥 암기를 최적화하는 후속 연구(ID·제목만 확인).
+2505.23884|2025|-|Test-Time Training Done Right|V|TTT,large-chunk|TTT의 구현·청크 설계를 다룬 2025년 연구(ID·제목만 확인).
+2512.23675|2025|-|End-to-End Test-Time Training for Long Context|V|TTT,long-context|장문 컨텍스트를 위한 종단간 테스트 시점 학습 연구(ID·제목만 확인).
+2411.07279|2024|-|The Surprising Effectiveness of Test-Time Training for Few-Shot Learning|V|TTT,few-shot,ARC|퓨샷 과제에서 테스트 시점 학습의 효과를 보인 연구. ARC 계열 접근에 영향을 줬다.
+#@section: 정규화·어텐션 변형
+2410.01131|2024|Loshchilov et al. (NVIDIA)|nGPT: Normalized Transformer with Representation Learning on the Hypersphere|V|nGPT,hypersphere,normalization|임베딩·MLP·어텐션 행렬·은닉 상태를 모두 단위 노름으로 정규화해, 같은 정확도에 필요한 학습 스텝을 시퀀스 길이에 따라 4~20배 줄인다고 보고.
+2410.05258|2024|Ye et al. (Microsoft)|Differential Transformer|V|Differential-Attention,noise-cancellation|두 소프트맥스 어텐션 맵의 차이로 어텐션을 계산해 무관한 문맥의 잡음을 줄인다. 장문 모델링·정보 검색·환각 감소·ICL 개선을 주장(ICLR 2025 구두).
+#@section: 확산(Diffusion) 언어모델
+2107.03006|2021|Austin et al.|Structured Denoising Diffusion Models in Discrete State-Spaces|M|D3PM,discrete-diffusion|이산 상태 공간에서의 확산 모델(D3PM)을 정식화해 텍스트 등 이산 데이터에 확산을 적용하는 토대를 마련.
+2205.14217|2022|Li et al. (Stanford)|Diffusion-LM Improves Controllable Text Generation|M|Diffusion-LM,controllable|연속 임베딩 공간의 확산으로 구문·문법 등 세밀한 제어 생성을 가능하게 한 연구.
+2310.16834|2023|Lou et al.|Discrete Diffusion Modeling by Estimating the Ratios of the Data Distribution|M|SEDD,score-entropy|점수 엔트로피 손실로 이산 확산을 학습하는 SEDD. 당시 GPT-2급 비교에서 확산 LM의 격차를 크게 줄였다.
+2406.07524|2024|Sahoo et al.|Simple and Effective Masked Diffusion Language Models|M|MDLM,masked-diffusion|마스크 기반 이산 확산을 단순한 목표로 학습해 확산 언어모델의 퍼플렉시티를 개선한 MDLM.
+2502.09992|2025|Nie et al.|Large Language Diffusion Models|V|LLaDA,masked-diffusion,8B|마스크 확산으로 처음부터 학습한 8B LLaDA. ICL이 LLaMA3 8B와 경쟁적이고 SFT 후 다중 턴 대화가 가능하며, 역전 시 완성 과제에서 GPT-4o를 앞섰다고 보고.
+2503.09573|2025|Arriola et al.|Block Diffusion: Interpolating Between Autoregressive and Diffusion Language Models|V|block-diffusion,KV-cache,flexible-length|블록 단위 자기회귀와 블록 내 확산을 보간하는 모델 계열. 가변 길이 생성, KV 캐시·병렬 샘플링을 가능하게 하고 확산 모델 중 최고 성능을 보고(ICLR 2025).
+2508.15487|2025|Ye et al.|Dream 7B: Diffusion Large Language Models|V|Dream,diffusion-LM,AR-init|AR 모델로 초기화한 7B 확산 LLM. 임의 순서 생성·채움(infilling)·품질-속도 조절이 가능하고 기존 확산 LM을 일관되게 앞선다고 보고.
+2512.15745|2025|-|LLaDA2.0: Scaling Up Diffusion Language Models to 100B|V|LLaDA2.0,diffusion-LM,100B|사전학습된 자기회귀 모델을 변환해 확산 언어모델을 100B로 확장(검색 결과 기준).
+2505.16933|2025|-|LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning|V|multimodal,diffusion-LM|LLaDA에 시각 지시 튜닝을 더해 순수 확산 기반 멀티모달 모델을 구성한 연구.
+#@section: 잠재 공간 추론·토크나이저 없는 모델·적응형 깊이
+2305.07185|2023|Yu et al. (Meta)|MegaByte: Predicting Million-byte Sequences with Multiscale Transformers|M|byte-level,multiscale|바이트를 패치로 묶어 전역·지역 모델로 나눠 백만 바이트 시퀀스를 다루는 다중 스케일 Transformer.
+2105.13626|2021|Xue et al. (Google)|ByT5: Towards a token-free future with pre-trained byte-to-byte models|M|byte-level,tokenizer-free|토크나이저 없이 바이트를 직접 입력으로 쓰는 T5 변형. 잡음·철자 변화에 강건.
+2412.09871|2024|Pagnoni et al. (Meta)|Byte Latent Transformer: Patches Scale Better Than Tokens|V|BLT,byte-patches,dynamic-compute|다음 바이트의 예측 불확실성에 따라 가변 길이 패치를 구성하는 바이트 수준 모델. 8B·4T 바이트까지의 FLOP 통제 스케일링에서 토크나이저 기반 모델보다 낫게 확장된다고 보고.
+2412.08821|2024|LCM team (Meta)|Large Concept Models: Language Modeling in a Sentence Representation Space|V|LCM,SONAR,sentence-level|문장을 하나의 ‘개념’으로 보고 SONAR 임베딩 공간에서 다음 문장을 예측하는 모델. 1.6B(1.3T 토큰)와 7B(2.7T 토큰) 규모를 시험하고 요약·요약 확장 과제로 평가.
+2412.06769|2024|Hao et al. (Meta)|Training Large Language Models to Reason in a Continuous Latent Space|V|Coconut,latent-reasoning,continuous-thought|마지막 은닉 상태를 단어로 디코딩하지 않고 다음 입력으로 되돌리는 ‘연속 사고’ 방식(Coconut). 되돌아가기가 많은 계획 과제에서 CoT보다 적은 사고 토큰으로 우수하다고 보고.
+2502.05171|2025|Geiping et al.|Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach|V|recurrent-depth,latent-reasoning,test-time-compute|순환 블록을 추론 시 더 많이 반복해 토큰을 늘리지 않고 연산을 늘리는 언어모델. 3.5B·8000억 토큰 규모 개념 증명 모델로 시연.
+2404.02258|2024|Raposo et al. (Google DeepMind)|Mixture-of-Depths: Dynamically allocating compute in transformer-based language models|V|Mixture-of-Depths,conditional-compute|층마다 top-k 라우터가 처리할 토큰을 고르는 방식으로 정적 계산 그래프를 유지하며 연산을 동적으로 배분. 같은 성능에서 순전파 FLOP과 샘플링 시간을 줄인다고 보고.
+2507.10524|2025|Bae et al.|Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation|V|Mixture-of-Recursions,parameter-sharing,adaptive-depth|파라미터를 공유한 재귀 Transformer에서 토큰마다 재귀 깊이를 라우팅하는 프레임워크(NeurIPS 2025).

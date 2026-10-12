@@ -1,0 +1,72 @@
+#@title: 에이전트 · 도구 사용 · RAG · 임베딩 · 자기 개선 시스템
+#@intro: LLM이 외부 도구·검색·메모리·다른 에이전트와 상호작용하며 작업을 수행하는 시스템 연구, 그리고 에이전트를 평가하는 벤치마크.
+#@section: 검색 증강 생성(RAG)과 검색 모델
+2005.11401|2020|Lewis et al. (Meta)|Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks|M|RAG,retrieval|생성 모델에 검색기를 결합해 외부 지식을 조회하며 답하는 RAG의 원형.
+2002.08909|2020|Guu et al. (Google)|REALM: Retrieval-Augmented Language Model Pre-Training|M|REALM,retrieval-pretraining|사전학습 단계에서부터 검색기를 함께 학습하는 언어모델.
+2112.04426|2021|Borgeaud et al. (DeepMind)|Improving language models by retrieving from trillions of tokens|M|RETRO,retrieval|수조 토큰 규모 데이터베이스에서 이웃 청크를 검색해 교차 어텐션으로 쓰는 RETRO.
+2208.03299|2022|Izacard et al. (Meta)|Atlas: Few-shot Learning with Retrieval Augmented Language Models|M|Atlas,few-shot,retrieval|검색 증강 모델이 소수 예시로도 지식 집약 과제에서 매우 큰 모델과 경쟁함을 보인 연구.
+2004.04906|2020|Karpukhin et al.|Dense Passage Retrieval for Open-Domain Question Answering|M|DPR,dense-retrieval|이중 인코더로 질문·문단을 임베딩해 BM25를 능가한 밀집 검색.
+2004.12832|2020|Khattab & Zaharia|ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT|M|ColBERT,late-interaction|토큰 수준 임베딩의 후기 상호작용(MaxSim)으로 정확도와 효율을 절충한 검색.
+2112.01488|2021|Santhanam et al.|ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction|M|ColBERTv2,compression|잔차 압축과 증류로 ColBERT의 저장 비용을 줄이고 품질을 높인 후속.
+1908.10084|2019|Reimers & Gurevych|Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks|M|SBERT,sentence-embedding|시암 구조로 문장 임베딩을 효율적으로 얻는 SBERT.
+2112.09118|2021|Izacard et al.|Unsupervised Dense Information Retrieval with Contrastive Learning|M|Contriever,unsupervised|레이블 없이 대조 학습으로 학습한 범용 밀집 검색기 Contriever.
+2212.03533|2022|Wang et al. (Microsoft)|Text Embeddings by Weakly-Supervised Contrastive Pre-training|M|E5,embeddings|약한 감독의 대규모 텍스트 쌍으로 대조 사전학습한 범용 임베딩 E5.
+2402.03216|2024|Chen et al. (BAAI)|BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation|M|BGE-M3,multilingual,embedding|다국어·밀집/희소/다중벡터 검색·긴 입력을 한 모델로 지원하는 임베딩.
+2205.13147|2022|Kusupati et al.|Matryoshka Representation Learning|M|Matryoshka,adaptive-embedding|앞부분 차원만 잘라 써도 성능이 유지되도록 다중 해상도로 학습하는 임베딩.
+2506.05176|2025|Qwen Team|Qwen3 Embedding|V|embedding,reranking,Qwen3|Qwen3 기반 임베딩·리랭킹 모델 보고(검색 결과 기준 ID와 제목만 확인).
+2212.10496|2022|Gao et al.|Precise Zero-Shot Dense Retrieval without Relevance Labels|M|HyDE,query-expansion|질문에 대한 가상 문서를 생성해 그 임베딩으로 검색하는 HyDE.
+2305.06983|2023|Jiang et al.|Active Retrieval Augmented Generation|M|FLARE,active-retrieval|생성 중 불확실할 때 능동적으로 검색을 수행하는 FLARE.
+2310.11511|2023|Asai et al.|Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection|M|Self-RAG,reflection-tokens|검색 필요 여부와 생성 품질을 ‘반성 토큰’으로 스스로 판단하며 검색·생성하는 모델.
+2401.15884|2024|Yan et al.|Corrective Retrieval Augmented Generation|V|CRAG,retrieval-evaluator|검색 결과의 품질을 평가해 부족하면 웹 검색으로 보정하는 CRAG.
+2312.06648|2023|Chen et al.|Dense X Retrieval: What Retrieval Granularity Should We Use?|V|retrieval-granularity,propositions|문서·문단 대신 ‘명제’ 단위로 색인하면 검색과 하류 성능이 개선됨을 보인 연구.
+2401.18059|2024|Sarthi et al. (Stanford)|RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval|V|RAPTOR,hierarchical-retrieval|청크를 임베딩·군집화·요약하는 과정을 재귀적으로 반복해 요약 트리를 만들고 여러 추상화 수준에서 검색(ICLR 2024).
+2404.16130|2024|Edge et al. (Microsoft)|From Local to Global: A Graph RAG Approach to Query-Focused Summarization|V|GraphRAG,knowledge-graph,community-summary|LLM으로 지식 그래프를 만들고 커뮤니티별 요약을 색인으로 써 코퍼스 전체에 대한 질의에 답한다. 벡터 RAG 대비 포괄성·다양성이 개선됐다고 보고.
+2503.09516|2025|Jin et al.|Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning|V|Search-R1,RL,agentic-search|추론 중 검색 질의를 스스로 생성하도록 순수 RL로 학습. 검색 결과 토큰 마스킹과 결과 기반 보상을 사용하며 7개 QA 데이터셋에서 기준선 대비 10~26% 개선을 보고(COLM 2025).
+#@section: 도구 사용과 에이전트 프레임워크
+2210.03629|2022|Yao et al.|ReAct: Synergizing Reasoning and Acting in Language Models|M|ReAct,tool-use|추론(Thought)과 행동(Action)을 번갈아 생성하며 외부 환경과 상호작용하는 프롬프팅 패러다임.
+2302.04761|2023|Schick et al. (Meta)|Toolformer: Language Models Can Teach Themselves to Use Tools|M|Toolformer,self-supervised-tool-use|API 호출을 언제·어떻게 쓸지 자기지도로 학습하는 모델.
+2112.09332|2021|Nakano et al. (OpenAI)|WebGPT: Browser-assisted question-answering with human feedback|M|WebGPT,browsing|텍스트 기반 브라우저로 검색하고 출처를 인용하도록 인간 피드백으로 학습한 모델.
+2305.15334|2023|Patil et al.|Gorilla: Large Language Model Connected with Massive APIs|M|Gorilla,API-calling|대규모 API 문서 기반으로 정확한 API 호출을 생성하도록 미세조정한 모델.
+2307.16789|2023|Qin et al.|ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs|M|ToolLLM,ToolBench|16,000개 이상의 실제 API를 다루는 도구 사용 데이터셋·프레임워크.
+2402.01030|2024|Wang et al.|Executable Code Actions Elicit Better LLM Agents|M|CodeAct,code-as-action|에이전트의 행동 공간을 실행 가능한 파이썬 코드로 통합하는 CodeAct.
+2303.17580|2023|Shen et al.|HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face|M|HuggingGPT,orchestration|LLM이 컨트롤러가 되어 다른 AI 모델들을 호출해 과제를 해결하는 구조.
+2308.08155|2023|Wu et al. (Microsoft)|AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation|M|AutoGen,multi-agent|여러 에이전트의 대화로 응용을 구성하는 프레임워크.
+2308.00352|2023|Hong et al.|MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework|M|MetaGPT,SOP|소프트웨어 개발 역할(PM, 아키텍트 등)과 표준 작업 절차를 에이전트에 부여.
+2307.07924|2023|Qian et al.|ChatDev: Communicative Agents for Software Development|M|ChatDev,software-agents|가상 소프트웨어 회사 구조의 다중 에이전트 개발 시스템.
+2303.17760|2023|Li et al.|CAMEL: Communicative Agents for Mind Exploration of Large Language Model Society|M|CAMEL,role-playing|역할극 기반 에이전트 간 자율 협업 프레임워크.
+2406.04692|2024|Wang et al.|Mixture-of-Agents Enhances Large Language Model Capabilities|V|MoA,ensemble,multi-LLM|여러 LLM 에이전트를 층으로 쌓고 각 층이 이전 층 출력을 참고해 응답하는 구조. AlpacaEval 2.0 등에서 GPT-4 Omni를 능가한다고 보고(버전별 수치 상이).
+2502.00674|2025|-|Rethinking Mixture-of-Agents: Is Mixing Different Large Language Models Beneficial?|V|MoA,analysis|서로 다른 LLM을 섞는 것이 이로운지 되묻는 MoA 재검토 연구(ID·제목만 확인).
+2308.11432|2023|Wang et al.|A Survey on Large Language Model based Autonomous Agents|M|survey,agents|LLM 기반 자율 에이전트의 구성(프로필·메모리·계획·행동)과 응용을 정리한 서베이.
+2309.07864|2023|Xi et al.|The Rise and Potential of Large Language Model Based Agents: A Survey|M|survey,agents|LLM 기반 에이전트의 두뇌·지각·행동 구조와 사회적 응용을 정리한 서베이.
+#@section: 장기 기억 · 시뮬레이션 · 컴퓨터 사용 에이전트
+2304.03442|2023|Park et al.|Generative Agents: Interactive Simulacra of Human Behavior|M|generative-agents,memory|관찰·반성·계획 구조와 기억 스트림을 가진 에이전트 25명이 가상 마을에서 사회적 행동을 보인 연구.
+2310.08560|2023|Packer et al.|MemGPT: Towards LLMs as Operating Systems|M|MemGPT,virtual-context,memory-hierarchy|OS의 가상 메모리처럼 컨텍스트와 외부 저장소 사이를 오가며 제한된 컨텍스트 창을 확장.
+2305.16291|2023|Wang et al.|Voyager: An Open-Ended Embodied Agent with Large Language Models|M|Voyager,Minecraft,skill-library|마인크래프트에서 코드로 된 기술 라이브러리를 축적하며 평생 학습하는 에이전트.
+2501.12326|2025|Qin et al. (ByteDance)|UI-TARS: Pioneering Automated GUI Interaction with Native Agents|V|UI-TARS,GUI-agent,computer-use|스크린샷만 입력으로 받아 키보드·마우스 행동을 출력하는 종단간 GUI 에이전트. OSWorld 24.6(50 스텝), AndroidWorld 46.6 등을 보고.
+2509.02544|2025|-|UI-TARS-2 Technical Report|V|UI-TARS,GUI-agent|UI-TARS의 후속 기술 보고서(검색 결과 기준 ID와 후속작 관계만 확인).
+#@section: 에이전트 벤치마크
+2310.06770|2023|Jimenez et al.|SWE-bench: Can Language Models Resolve Real-World GitHub Issues?|M|SWE-bench,software-engineering|실제 GitHub 이슈를 저장소 수준에서 해결하는 능력을 평가하는 벤치마크.
+2405.15793|2024|Yang et al.|SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering|M|SWE-agent,ACI|에이전트에 맞게 설계된 컴퓨터 인터페이스(ACI)가 소프트웨어 엔지니어링 성능을 높임을 보인 연구.
+2404.07972|2024|Xie et al.|OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments|M|OSWorld,computer-use|실제 운영체제 환경에서 멀티모달 에이전트를 평가하는 벤치마크.
+2307.13854|2023|Zhou et al.|WebArena: A Realistic Web Environment for Building Autonomous Agents|M|WebArena,web-agents|현실적인 웹사이트 환경에서 자율 에이전트를 평가하는 벤치마크.
+2306.06070|2023|Deng et al.|Mind2Web: Towards a Generalist Agent for the Web|M|Mind2Web,web-agents|여러 도메인의 실제 웹사이트에서 수집한 작업 데이터셋.
+2311.12983|2023|Mialon et al.|GAIA: a benchmark for General AI Assistants|M|GAIA,general-assistant|사람에게는 쉽지만 AI에는 어려운 도구 사용형 질문으로 구성된 범용 비서 벤치마크.
+2308.03688|2023|Liu et al.|AgentBench: Evaluating LLMs as Agents|M|AgentBench,evaluation|여러 환경(OS, DB, 웹 등)에서 LLM의 에이전트 능력을 평가하는 벤치마크.
+2406.12045|2024|Yao et al. (Sierra)|τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains|V|tau-bench,pass^k,tool-use|LLM이 시뮬레이션한 사용자와 도메인 API·정책을 가진 에이전트의 대화를 평가(소매·항공). 최종 DB 상태를 정답과 비교하고, 반복 시행 일관성을 재는 pass^k를 도입. gpt-4o급도 50% 미만 성공.
+2506.07982|2025|-|τ²-Bench: Evaluating Conversational Agents in a Dual-Control Environment|V|tau2-bench,dual-control|사용자도 도구를 쓰는 이중 제어 환경으로 τ-bench를 확장(검색 결과 기준).
+2504.12516|2025|Wei et al. (OpenAI)|BrowseComp: A Simple Yet Challenging Benchmark for Browsing Agents|V|BrowseComp,browsing|찾기 어려운 정보를 끈질기게 검색해야 하는 1,266개 질문. 답이 짧아 채점이 쉽다.
+2508.06600|2025|-|BrowseComp-Plus: A More Fair and Transparent Evaluation Benchmark of Deep-Research Agent|V|BrowseComp-Plus,deep-research|딥리서치 에이전트를 더 공정하고 투명하게 평가하려는 BrowseComp 확장(ID·제목만 확인).
+2410.07095|2024|Chan et al. (OpenAI)|MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering|V|MLE-bench,Kaggle,ML-engineering|75개 Kaggle 대회로 ML 엔지니어링 에이전트를 평가. o1-preview+AIDE가 16.9%의 대회에서 최소 동메달(ICLR 2025).
+2507.02554|2025|-|AI Research Agents for Machine Learning: Search, Exploration, and Generalization in MLE-bench|V|MLE-bench,research-agents|MLE-bench에서의 AI 연구 에이전트의 탐색·일반화를 분석한 연구(ID·제목만 확인).
+2411.15114|2024|Wijk et al. (METR)|RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts|V|RE-Bench,AI-R&D,human-baseline|7개 개방형 ML 연구 엔지니어링 환경과 61명 전문가의 71회 8시간 시도를 비교. 8시간 계산 예산에서 평균 전문가에 근접하나 최상위와는 격차가 있다고 보고(ICML 2025).
+#@section: 자기 개선·자동 프롬프트·과학 에이전트
+2309.03409|2023|Yang et al. (Google DeepMind)|Large Language Models as Optimizers|M|OPRO,prompt-optimization|LLM이 이전 해답과 점수를 보고 새 해답을 제안하는 최적화(OPRO)로 프롬프트를 개선.
+2310.12931|2023|Ma et al. (NVIDIA)|Eureka: Human-Level Reward Design via Coding Large Language Models|M|Eureka,reward-design|LLM이 로봇 강화학습 보상 함수 코드를 작성·개선해 인간 설계 보상을 능가.
+2310.03714|2023|Khattab et al.|DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines|M|DSPy,prompt-compilation|LM 파이프라인을 선언적 모듈로 기술하고 프롬프트·예시를 자동 최적화하는 프레임워크.
+2309.16797|2023|Fernando et al. (Google DeepMind)|Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution|M|Promptbreeder,evolution|프롬프트와 변이 프롬프트를 함께 진화시키는 자기 참조적 개선.
+2310.02304|2023|Zelikman et al.|Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation|M|STOP,recursive-self-improvement|스캐폴딩 프로그램이 자기 자신을 재귀적으로 개선하는 코드 생성 시스템.
+2406.07496|2024|Yuksekgonul et al.|TextGrad: Automatic Differentiation via Text|V|TextGrad,textual-gradient|LLM의 자연어 피드백을 ‘기울기’처럼 역전파해 복합 AI 시스템의 구성요소를 최적화. GPQA에서 GPT-4o 제로샷 51→55% 등을 보고.
+2408.08435|2024|Hu, Lu, Clune|Automated Design of Agentic Systems|V|ADAS,meta-agent,agent-design|메타 에이전트가 코드로 새 에이전트를 설계·발견하는 연구 분야 제안. 발견된 에이전트가 수작업 설계를 코딩·과학·수학 과제에서 앞섰다고 보고.
+2408.06292|2024|Lu et al. (Sakana AI)|The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery|V|AI-Scientist,automated-research|아이디어 생성·문헌 조사·실험·논문 작성·동료 평가까지 ML 연구 전 과정을 자동화하는 프레임워크.
+2505.22954|2025|Zhang et al.|Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents|V|DGM,self-modifying-agent,open-ended|증명 대신 경험적 검증으로 자기 코드를 수정·진화시키는 에이전트. 아카이브 기반 탐색으로 SWE-bench 성능을 20.0%→50.0%로 올렸다고 보고.
+2510.21614|2025|-|Huxley-Gödel Machine: Human-Level Coding Agent Development by an Approximation of the Optimal Self-Improving Machine|V|HGM,self-improvement|DGM을 이은 자기 개선 코딩 에이전트 연구. 검색 결과상 SWE-bench Verified·Polyglot에서 DGM을 앞선다고 인용됨.

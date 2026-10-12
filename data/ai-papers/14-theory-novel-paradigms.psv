@@ -1,0 +1,38 @@
+#@title: 이론 · 실험적 패러다임 · 비표준 구조
+#@intro: 일반화 이론, 문맥 내 학습의 이론적 해석, 생물학·물리학에서 영감을 받은 신경망, 비표준 학습 알고리즘, 모델 병합, 작은 재귀 추론 모델처럼 주류 스케일링 노선 밖의 실험적 시도.
+#@section: 학습·일반화 이론과 현상
+1806.07572|2018|Jacot et al.|Neural Tangent Kernel: Convergence and Generalization in Neural Networks|M|NTK,infinite-width|무한 너비 신경망의 학습이 커널 방법(NTK)으로 기술됨을 보인 이론.
+1803.03635|2018|Frankle & Carbin|The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks|M|lottery-ticket,pruning|큰 네트워크 안에 단독으로 학습 가능한 희소 부분망이 존재한다는 가설.
+1912.02292|2019|Nakkiran et al.|Deep Double Descent: Where Bigger Models and More Data Hurt|M|double-descent|모델 크기·데이터·학습 시간에 따라 테스트 오류가 두 번 내려가는 현상.
+2201.02177|2022|Power et al.|Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets|M|grokking|훈련 오차가 0이 된 한참 뒤에 갑자기 일반화되는 현상을 소규모 알고리즘 데이터에서 관찰.
+2208.01066|2022|Garg et al.|What Can Transformers Learn In-Context? A Case Study of Simple Function Classes|M|ICL,theory|Transformer가 문맥 속 예시만으로 선형 함수 등을 학습할 수 있음을 통제된 설정에서 보임.
+2212.07677|2022|von Oswald et al.|Transformers learn in-context by gradient descent|M|ICL,gradient-descent|선형 어텐션 층이 문맥 내 학습에서 경사하강 한 단계와 동등한 연산을 구현할 수 있음을 구성적으로 보임.
+2212.10559|2022|Dai et al.|Why Can GPT Learn In-Context? Language Models Implicitly Perform Gradient Descent as Meta-Optimizers|M|ICL,meta-optimization|문맥 내 학습을 어텐션이 만드는 암묵적 경사하강으로 해석.
+#@section: 생물·물리에서 영감을 받은 신경망
+1410.5401|2014|Graves et al. (DeepMind)|Neural Turing Machines|M|external-memory|외부 메모리를 읽고 쓰는 미분 가능한 신경망 구조.
+1609.09106|2016|Ha, Dai, Le|HyperNetworks|M|hypernetwork|한 네트워크가 다른 네트워크의 가중치를 생성.
+1710.09829|2017|Sabour, Frosst, Hinton|Dynamic Routing Between Capsules|M|capsule-networks|벡터 출력의 캡슐과 동적 라우팅으로 부분-전체 관계를 표현하려는 구조.
+1806.07366|2018|Chen et al.|Neural Ordinary Differential Equations|M|neural-ODE|은닉 상태의 연속적 변화를 ODE로 모델링하는 연속 깊이 신경망.
+1909.01377|2019|Bai, Kolter, Koltun|Deep Equilibrium Models|M|DEQ,implicit-layers|무한히 깊은 가중치 공유 네트워크의 고정점을 직접 구해 평가하는 암묵적 모델.
+2006.04439|2020|Hasani et al.|Liquid Time-constant Networks|M|liquid-neural-network,continuous-time|입력에 따라 시간 상수가 변하는 연속시간 순환 신경망.
+2106.13898|2021|Hasani et al.|Closed-form Continuous-time Neural Models|M|CfC,continuous-time|연속시간 신경망의 ODE 풀이를 근사적 닫힌 형태로 대체해 계산을 빠르게 한 CfC.
+2008.02217|2020|Ramsauer et al.|Hopfield Networks is All You Need|M|modern-Hopfield,attention|현대 Hopfield 네트워크의 갱신 규칙이 Transformer 어텐션과 동등함을 보임.
+2212.13345|2022|Hinton|The Forward-Forward Algorithm: Some Preliminary Investigations|M|forward-forward,backprop-free|역전파 대신 긍정/부정 데이터에 대한 두 번의 순전파로 층별 학습하는 대안 알고리즘.
+2106.04399|2021|Bengio et al.|Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation|M|GFlowNet|보상에 비례한 확률로 다양한 후보를 순차 생성하는 GFlowNet.
+2209.15425|2022|Zhou et al.|Spikformer: When Spiking Neural Network Meets Transformer|M|spiking,transformer|스파이킹 신경망에 자기 어텐션을 도입한 구조.
+2302.13939|2023|Zhu et al.|SpikeGPT: Generative Pre-trained Language Model with Spiking Neural Networks|M|spiking,language-model|스파이킹 신경망 기반 생성형 언어모델.
+2404.19756|2024|Liu et al. (MIT)|KAN: Kolmogorov-Arnold Networks|M|KAN,learnable-activation|노드가 아닌 엣지에 학습 가능한 1변수 함수를 두는 신경망. 소규모 과학 문제에서 해석 가능성과 정확도를 주장했으나 대규모 효과는 논쟁 중.
+#@section: 메타 학습 · 생성 모델의 고전 · 탐색
+1406.2661|2014|Goodfellow et al.|Generative Adversarial Networks|M|GAN|생성기와 판별기가 경쟁하며 학습하는 생성 모델.
+1312.6114|2013|Kingma & Welling|Auto-Encoding Variational Bayes|M|VAE|변분 추론으로 잠재 변수 생성 모델을 학습하는 VAE.
+1605.08803|2016|Dinh et al.|Density estimation using Real NVP|M|normalizing-flow|가역 변환으로 정확한 우도를 계산하는 정규화 플로우.
+1703.03400|2017|Finn et al.|Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks|M|MAML,meta-learning|소수 경사 단계로 새 과제에 적응하도록 초기 파라미터를 메타 학습.
+1611.01578|2016|Zoph & Le|Neural Architecture Search with Reinforcement Learning|M|NAS|강화학습으로 신경망 구조를 탐색.
+#@section: 모델 병합 · 소형 재귀 추론 · 에너지 기반 접근
+2203.05482|2022|Wortsman et al.|Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time|M|model-soup,weight-averaging|여러 미세조정 모델의 가중치를 평균하면 추론 비용 증가 없이 정확도가 향상됨.
+2212.04089|2022|Ilharco et al.|Editing Models with Task Arithmetic|M|task-vector,model-editing|미세조정 전후 가중치 차이(과제 벡터)를 더하고 빼서 모델 능력을 편집.
+2306.01708|2023|Yadav et al.|TIES-Merging: Resolving Interference When Merging Models|M|model-merging|파라미터 간 간섭을 줄이며 여러 모델을 병합하는 방법.
+2403.13187|2024|Akiba et al. (Sakana AI)|Evolutionary Optimization of Model Merging Recipes|V|evolutionary-merge,model-merging|진화 알고리즘으로 병합 레시피를 자동 탐색. 파라미터 공간과 데이터 흐름 공간 모두에서 작동하며 수학 추론이 가능한 일본어 LLM 등을 구성(Nature Machine Intelligence 2025로 인용됨).
+2506.21734|2025|Wang et al.|Hierarchical Reasoning Model|V|HRM,recurrent,small-model|느린 추상 계획 모듈과 빠른 세부 계산 모듈로 이루어진 약 27M 파라미터 순환 모델. 약 1,000개 예시로 학습해 Sudoku-Extreme와 30×30 미로를 풀고 ARC에서 큰 모델을 앞선다고 주장했으나 후속 비판 연구가 있다.
+2510.04871|2025|Jolicoeur-Martineau|Less is More: Recursive Reasoning with Tiny Networks|V|TRM,recursive-reasoning,ARC-AGI|HRM을 단순화한 단일 2층 네트워크 TRM(7M 파라미터). 잠재 상태와 답을 재귀적으로 갱신하며 ARC-AGI-1 45%, ARC-AGI-2 8%를 보고.
+2507.02092|2025|Gladstone et al.|Energy-Based Transformers are Scalable Learners and Thinkers|V|EBT,energy-based,system-2|에너지를 경사하강으로 최소화하며 예측하는 에너지 기반 Transformer. 학습 스케일링이 Transformer++보다 최대 35% 빠르고 추론 시 추가 연산 이득이 언어 과제에서 29% 더 크다고 보고.
