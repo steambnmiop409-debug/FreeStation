@@ -15,7 +15,7 @@
 2302.13971|2023|Touvron et al. (Meta)|LLaMA: Open and Efficient Foundation Language Models|M|LLaMA,open-weights,data|공개 데이터만으로 학습한 7B~65B 모델. 추론 비용을 고려해 모델을 작게 두고 토큰을 더 많이 학습하는 방향을 택했고, 이후 오픈 모델 생태계의 출발점이 됐다.
 2307.09288|2023|Touvron et al. (Meta)|Llama 2: Open Foundation and Fine-Tuned Chat Models|M|Llama-2,RLHF,safety|7B~70B 사전학습 모델과 RLHF로 다듬은 채팅 모델을 상업 이용이 가능한 라이선스로 공개하고, 미세조정·안전성 절차를 상세히 기술.
 2310.06825|2023|Jiang et al. (Mistral AI)|Mistral 7B|M|GQA,sliding-window,small-model|그룹 질의 어텐션(GQA)과 슬라이딩 윈도 어텐션을 써서 7B 규모로 더 큰 Llama 2 13B를 여러 벤치마크에서 앞선 모델.
-2401.04088|2024|Jiang et al. (Mistral AI)|Mixtral of Experts|M|MoE,sparse,open-weights|토큰마다 8개 전문가 중 2개를 선택하는 희소 MoE 모델. 총 파라미터 대비 활성 파라미터가 작아 추론 효율이 높다.
+2401.04088|2024|Jiang et al. (Mistral AI)|Mixtral of Experts|V|MoE,sparse,open-weights|토큰마다 8개 전문가 중 2개를 선택하는 희소 MoE 모델. 총 파라미터 대비 활성 파라미터가 작아 추론 효율이 높다.
 2407.21783|2024|Llama Team (Meta)|The Llama 3 Herd of Models|V|Llama-3,405B,dense|8B·70B·405B 규모의 Llama 3 계열 보고서. 최대 모델은 128K 컨텍스트의 dense Transformer이며 약 15.6T 토큰으로 사전학습, 다국어·코딩·추론·도구 사용을 지원한다.
 2403.08295|2024|Gemma Team (Google)|Gemma: Open Models Based on Gemini Research and Technology|M|Gemma,open-weights,small-model|Gemini 연구·기술을 바탕으로 한 경량 오픈 모델(2B·7B)의 기술 보고서.
 2408.00118|2024|Gemma Team (Google)|Gemma 2: Improving Open Language Models at a Practical Size|M|Gemma-2,distillation|지식 증류와 지역-전역 어텐션 교차 등을 적용해 2B~27B 실용 크기에서 성능을 높인 Gemma 2 보고서.
@@ -37,7 +37,7 @@
 2508.10925|2025|OpenAI|gpt-oss-120b & gpt-oss-20b Model Card|V|gpt-oss,open-weights,MoE,MXFP4|Apache 2.0 오픈 가중치 추론 모델 2종. 120b는 총 약 116.8B·활성 약 5.1B, 20b는 총 약 20.9B·활성 약 3.6B 파라미터이며 MoE 가중치를 MXFP4로 양자화했다.
 2501.12948|2025|DeepSeek-AI|DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning|V|R1,GRPO,RLVR,reasoning|검증 가능한 보상 기반 강화학습만으로 긴 사고 사슬 추론이 출현함을 보인 R1-Zero와, 소량 콜드스타트 데이터를 더한 R1. 오픈 추론 모델 붐의 기점.
 2412.19437|2024|DeepSeek-AI|DeepSeek-V3 Technical Report|V|MoE,MLA,FP8,multi-token-prediction|총 671B·토큰당 활성 37B의 MoE 모델. MLA와 DeepSeekMoE를 유지하고 보조 손실 없는 부하 분산과 다중 토큰 예측 목표를 도입했으며 14.8T 토큰, 약 278.8만 H800 GPU-시간으로 학습했다.
-2405.04434|2024|DeepSeek-AI|DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model|M|MLA,MoE,KV-cache|KV 캐시를 크게 줄이는 Multi-head Latent Attention(MLA)과 DeepSeekMoE를 결합한 236B(활성 21B) MoE 모델.
+2405.04434|2024|DeepSeek-AI|DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model|V|MLA,MoE,KV-cache|KV 캐시를 크게 줄이는 Multi-head Latent Attention(MLA)과 DeepSeekMoE를 결합한 236B(활성 21B) MoE 모델.
 2401.14196|2024|Guo et al. (DeepSeek)|DeepSeek-Coder: When the Large Language Model Meets Programming - The Rise of Code Intelligence|M|code,repo-level,open-weights|저장소 수준 코드 데이터로 학습한 1.3B~33B 오픈 코드 모델군.
 2501.12599|2025|Kimi Team (Moonshot AI)|Kimi k1.5: Scaling Reinforcement Learning with LLMs|V|RL,long-CoT,multimodal|강화학습 기반 멀티모달 LLM의 학습 레시피 보고서. short-CoT 설정에서 AIME 60.8, MATH500 94.6, LiveCodeBench 47.3을 보고했다.
 2507.20534|2025|Kimi Team (Moonshot AI)|Kimi K2: Open Agentic Intelligence|V|MoE,MuonClip,agentic|총 1조·활성 320억 파라미터 MoE. MuonClip 옵티마이저로 15.5T 토큰을 손실 급등(loss spike) 없이 사전학습했고, 대규모 에이전트 데이터 합성과 통합 RL 단계를 거쳤다.

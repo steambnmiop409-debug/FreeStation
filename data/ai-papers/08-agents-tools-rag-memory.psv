@@ -41,16 +41,16 @@
 #@section: 장기 기억 · 시뮬레이션 · 컴퓨터 사용 에이전트
 2304.03442|2023|Park et al.|Generative Agents: Interactive Simulacra of Human Behavior|M|generative-agents,memory|관찰·반성·계획 구조와 기억 스트림을 가진 에이전트 25명이 가상 마을에서 사회적 행동을 보인 연구.
 2310.08560|2023|Packer et al.|MemGPT: Towards LLMs as Operating Systems|M|MemGPT,virtual-context,memory-hierarchy|OS의 가상 메모리처럼 컨텍스트와 외부 저장소 사이를 오가며 제한된 컨텍스트 창을 확장.
-2305.16291|2023|Wang et al.|Voyager: An Open-Ended Embodied Agent with Large Language Models|M|Voyager,Minecraft,skill-library|마인크래프트에서 코드로 된 기술 라이브러리를 축적하며 평생 학습하는 에이전트.
+2305.16291|2023|Wang et al.|Voyager: An Open-Ended Embodied Agent with Large Language Models|V|Voyager,Minecraft,skill-library|마인크래프트에서 코드로 된 기술 라이브러리를 축적하며 평생 학습하는 에이전트.
 2501.12326|2025|Qin et al. (ByteDance)|UI-TARS: Pioneering Automated GUI Interaction with Native Agents|V|UI-TARS,GUI-agent,computer-use|스크린샷만 입력으로 받아 키보드·마우스 행동을 출력하는 종단간 GUI 에이전트. OSWorld 24.6(50 스텝), AndroidWorld 46.6 등을 보고.
 2509.02544|2025|-|UI-TARS-2 Technical Report|V|UI-TARS,GUI-agent|UI-TARS의 후속 기술 보고서(검색 결과 기준 ID와 후속작 관계만 확인).
 #@section: 에이전트 벤치마크
-2310.06770|2023|Jimenez et al.|SWE-bench: Can Language Models Resolve Real-World GitHub Issues?|M|SWE-bench,software-engineering|실제 GitHub 이슈를 저장소 수준에서 해결하는 능력을 평가하는 벤치마크.
-2405.15793|2024|Yang et al.|SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering|M|SWE-agent,ACI|에이전트에 맞게 설계된 컴퓨터 인터페이스(ACI)가 소프트웨어 엔지니어링 성능을 높임을 보인 연구.
-2404.07972|2024|Xie et al.|OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments|M|OSWorld,computer-use|실제 운영체제 환경에서 멀티모달 에이전트를 평가하는 벤치마크.
-2307.13854|2023|Zhou et al.|WebArena: A Realistic Web Environment for Building Autonomous Agents|M|WebArena,web-agents|현실적인 웹사이트 환경에서 자율 에이전트를 평가하는 벤치마크.
+2310.06770|2023|Jimenez et al.|SWE-bench: Can Language Models Resolve Real-World GitHub Issues?|V|SWE-bench,software-engineering|실제 GitHub 이슈를 저장소 수준에서 해결하는 능력을 평가하는 벤치마크.
+2405.15793|2024|Yang et al.|SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering|V|SWE-agent,ACI|에이전트에 맞게 설계된 컴퓨터 인터페이스(ACI)가 소프트웨어 엔지니어링 성능을 높임을 보인 연구.
+2404.07972|2024|Xie et al.|OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments|V|OSWorld,computer-use|실제 운영체제 환경에서 멀티모달 에이전트를 평가하는 벤치마크.
+2307.13854|2023|Zhou et al.|WebArena: A Realistic Web Environment for Building Autonomous Agents|V|WebArena,web-agents|현실적인 웹사이트 환경에서 자율 에이전트를 평가하는 벤치마크.
 2306.06070|2023|Deng et al.|Mind2Web: Towards a Generalist Agent for the Web|M|Mind2Web,web-agents|여러 도메인의 실제 웹사이트에서 수집한 작업 데이터셋.
-2311.12983|2023|Mialon et al.|GAIA: a benchmark for General AI Assistants|M|GAIA,general-assistant|사람에게는 쉽지만 AI에는 어려운 도구 사용형 질문으로 구성된 범용 비서 벤치마크.
+2311.12983|2023|Mialon et al.|GAIA: a benchmark for General AI Assistants|V|GAIA,general-assistant|사람에게는 쉽지만 AI에는 어려운 도구 사용형 질문으로 구성된 범용 비서 벤치마크.
 2308.03688|2023|Liu et al.|AgentBench: Evaluating LLMs as Agents|M|AgentBench,evaluation|여러 환경(OS, DB, 웹 등)에서 LLM의 에이전트 능력을 평가하는 벤치마크.
 2406.12045|2024|Yao et al. (Sierra)|τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains|V|tau-bench,pass^k,tool-use|LLM이 시뮬레이션한 사용자와 도메인 API·정책을 가진 에이전트의 대화를 평가(소매·항공). 최종 DB 상태를 정답과 비교하고, 반복 시행 일관성을 재는 pass^k를 도입. gpt-4o급도 50% 미만 성공.
 2506.07982|2025|-|τ²-Bench: Evaluating Conversational Agents in a Dual-Control Environment|V|tau2-bench,dual-control|사용자도 도구를 쓰는 이중 제어 환경으로 τ-bench를 확장(검색 결과 기준).

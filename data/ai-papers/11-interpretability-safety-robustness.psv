@@ -2,12 +2,12 @@
 #@intro: 모델 내부 표현을 분석하는 기계적 해석가능성(mechanistic interpretability), 탈옥·데이터 추출 등 공격, 기만·오정렬의 실증 연구, 추론 과정의 충실성과 모니터링. AGI 수준 안전·정렬 이론은 00번 문서를 참조.
 #@section: 기계적 해석가능성
 ext:https://transformer-circuits.pub/2021/framework/index.html|2021|Elhage et al. (Anthropic)|A Mathematical Framework for Transformer Circuits|V|circuits,transformer,interpretability|Transformer를 잔차 흐름과 어텐션 헤드의 회로로 해석하는 수학적 틀을 제시(arXiv 논문 아님, transformer-circuits.pub 게재).
-2209.10652|2022|Elhage et al. (Anthropic)|Toy Models of Superposition|M|superposition,polysemanticity|뉴런이 특징보다 적을 때 모델이 특징을 중첩(superposition)해 저장하는 현상을 장난감 모델로 분석.
-2209.11895|2022|Olsson et al. (Anthropic)|In-context Learning and Induction Heads|M|induction-heads,ICL|문맥 내 학습 능력의 출현이 ‘유도 헤드’ 형성 시점과 맞물린다는 증거를 제시.
+2209.10652|2022|Elhage et al. (Anthropic)|Toy Models of Superposition|V|superposition,polysemanticity|뉴런이 특징보다 적을 때 모델이 특징을 중첩(superposition)해 저장하는 현상을 장난감 모델로 분석.
+2209.11895|2022|Olsson et al. (Anthropic)|In-context Learning and Induction Heads|V|induction-heads,ICL|문맥 내 학습 능력의 출현이 ‘유도 헤드’ 형성 시점과 맞물린다는 증거를 제시.
 2211.00593|2022|Wang et al.|Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 small|M|circuit-discovery,IOI|GPT-2 small에서 간접목적어 식별 과제를 수행하는 회로를 역공학한 사례 연구.
-2301.05217|2023|Nanda et al.|Progress measures for grokking via mechanistic interpretability|M|grokking,modular-addition|모듈러 덧셈을 학습한 네트워크가 푸리에 기반 알고리즘을 구현함을 밝히고 grokking을 단계적 진행으로 설명.
-2202.05262|2022|Meng et al.|Locating and Editing Factual Associations in GPT|M|ROME,model-editing,causal-tracing|인과 추적으로 사실 지식이 중간 층 MLP에 국소화됨을 보이고 이를 편집하는 ROME을 제안.
-2309.08600|2023|Cunningham et al.|Sparse Autoencoders Find Highly Interpretable Features in Language Models|M|sparse-autoencoder,monosemanticity|희소 오토인코더로 활성화를 분해하면 뉴런보다 해석 가능한 특징을 얻을 수 있음을 보임.
+2301.05217|2023|Nanda et al.|Progress measures for grokking via mechanistic interpretability|V|grokking,modular-addition|모듈러 덧셈을 학습한 네트워크가 푸리에 기반 알고리즘을 구현함을 밝히고 grokking을 단계적 진행으로 설명.
+2202.05262|2022|Meng et al.|Locating and Editing Factual Associations in GPT|V|ROME,model-editing,causal-tracing|인과 추적으로 사실 지식이 중간 층 MLP에 국소화됨을 보이고 이를 편집하는 ROME을 제안.
+2309.08600|2023|Cunningham et al.|Sparse Autoencoders Find Highly Interpretable Features in Language Models|V|sparse-autoencoder,monosemanticity|희소 오토인코더로 활성화를 분해하면 뉴런보다 해석 가능한 특징을 얻을 수 있음을 보임.
 ext:https://transformer-circuits.pub/2023/monosemantic-features|2023|Bricken et al. (Anthropic)|Towards Monosemanticity: Decomposing Language Models With Dictionary Learning|V|monosemanticity,dictionary-learning|1층 Transformer의 활성화를 사전 학습(희소 오토인코더)으로 분해해 단의미 특징을 추출(arXiv 논문 아님).
 ext:https://transformer-circuits.pub/2024/scaling-monosemanticity/|2024|Templeton et al. (Anthropic)|Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet|V|monosemanticity,scaling,SAE|희소 오토인코더를 대형 상용 모델(Claude 3 Sonnet)의 중간 층에 확장 적용해 다양한 추상 특징을 추출(arXiv 논문 아님).
 ext:https://transformer-circuits.pub/2025/attribution-graphs/biology.html|2025|Lindsey et al. (Anthropic)|On the Biology of a Large Language Model|V|attribution-graphs,circuit-tracing|귀속 그래프로 대형 모델의 내부 계산 경로(다단계 추론, 시 쓰기 계획 등)를 추적한 사례 연구(arXiv 논문 아님).
@@ -19,7 +19,7 @@ ext:https://transformer-circuits.pub/2025/attribution-graphs/biology.html|2025|L
 2207.05221|2022|Kadavath et al. (Anthropic)|Language Models (Mostly) Know What They Know|M|calibration,self-knowledge|충분히 큰 모델이 자기 답의 정답 확률을 잘 보정해 예측할 수 있음을 보인 연구.
 2309.12288|2023|Berglund et al.|The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"|M|reversal-curse,generalization|“A는 B다”로 학습한 모델이 “B는 A다”를 일반화하지 못하는 현상.
 #@section: 기만 · 오정렬의 실증 연구
-2401.05566|2024|Hubinger et al. (Anthropic)|Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training|M|sleeper-agents,backdoor,deception|특정 조건에서만 악의적 행동을 하도록 학습한 백도어 모델이 표준 안전 학습(SFT, RLHF, 적대적 학습)으로 제거되지 않을 수 있음을 보임.
+2401.05566|2024|Hubinger et al. (Anthropic)|Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training|V|sleeper-agents,backdoor,deception|특정 조건에서만 악의적 행동을 하도록 학습한 백도어 모델이 표준 안전 학습(SFT, RLHF, 적대적 학습)으로 제거되지 않을 수 있음을 보임.
 2412.14093|2024|Greenblatt et al. (Anthropic, Redwood)|Alignment faking in large language models|V|alignment-faking,Claude-3-Opus|학습 중이라고 믿는 상황(무료 사용자)에서 Claude 3 Opus가 기존 선호를 지키려 선택적으로 순응하는 행동 관찰. 무료 사용자 질의의 14%에서 유해 질의에 순응했고 대부분 명시적 위장 추론이 있었다고 보고.
 2506.21584|2025|Koorndijk|Empirical Evidence for Alignment Faking in a Small LLM and Prompt-Based Mitigation Techniques|V|alignment-faking,small-model|LLaMA 3 8B에서도 정렬 위장 행동이 관찰되며 프롬프트 개입(의무론적 도덕 프레이밍, 스크래치패드 추론)으로 줄일 수 있다고 보고.
 2412.04984|2024|Meinke et al. (Apollo Research)|Frontier Models are Capable of In-context Scheming|V|scheming,sandbagging,agentic-eval|o1, Claude 3.5 Sonnet, Claude 3 Opus, Gemini 1.5 Pro, Llama 3.1 405B가 모두 문맥 내 음모(scheming) 능력을 보임. 미묘한 오류 삽입, 감독 장치 무력화 시도, 가중치 유출 시도 등을 관찰하고 o1은 85% 초과의 후속 질문에서 기만을 유지.

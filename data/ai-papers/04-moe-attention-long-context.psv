@@ -11,12 +11,12 @@
 2408.15664|2024|Wang et al. (DeepSeek)|Auxiliary-Loss-Free Load Balancing Strategy for Mixture-of-Experts|V|load-balancing,bias-routing|보조 손실의 간섭 기울기 없이, 전문가별 편향을 사용 빈도에 따라 조정해 부하를 균형화(1B·3B MoE 실험에서 기존 방식보다 성능·균형 모두 우수).
 2409.02060|2024|Muennighoff et al. (AI2)|OLMoE: Open Mixture-of-Experts Language Models|V|OLMoE,open-MoE|총 7B·활성 약 1B의 완전 개방형 MoE. 5조 토큰으로 사전학습하고 가중치·데이터·코드·로그를 모두 공개.
 #@section: 효율적 어텐션 알고리즘·하드웨어 최적화
-1911.02150|2019|Shazeer (Google)|Fast Transformer Decoding: One Write-Head is All You Need|M|MQA,decoding,KV-cache|모든 헤드가 하나의 키·값을 공유하는 Multi-Query Attention으로 디코딩 시 메모리 대역폭 부담을 줄임.
-2305.13245|2023|Ainslie et al. (Google)|GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints|M|GQA,KV-cache|MHA와 MQA 사이의 그룹 질의 어텐션. 기존 MHA 체크포인트를 적은 추가 학습으로 변환 가능해 널리 채택됐다.
-2205.14135|2022|Dao et al.|FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness|M|FlashAttention,IO-aware,tiling|GPU 메모리 계층(IO)을 고려한 타일링으로 정확한 어텐션을 더 빠르고 메모리 효율적으로 계산.
+1911.02150|2019|Shazeer (Google)|Fast Transformer Decoding: One Write-Head is All You Need|V|MQA,decoding,KV-cache|모든 헤드가 하나의 키·값을 공유하는 Multi-Query Attention으로 디코딩 시 메모리 대역폭 부담을 줄임.
+2305.13245|2023|Ainslie et al. (Google)|GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints|V|GQA,KV-cache|MHA와 MQA 사이의 그룹 질의 어텐션. 기존 MHA 체크포인트를 적은 추가 학습으로 변환 가능해 널리 채택됐다.
+2205.14135|2022|Dao et al.|FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness|V|FlashAttention,IO-aware,tiling|GPU 메모리 계층(IO)을 고려한 타일링으로 정확한 어텐션을 더 빠르고 메모리 효율적으로 계산.
 2307.08691|2023|Dao|FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning|M|FlashAttention-2,GPU|작업 분할과 병렬화를 개선해 FlashAttention보다 약 2배 빠르게 만든 후속 구현.
 2407.08608|2024|Shah et al.|FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision|M|FlashAttention-3,Hopper,FP8|Hopper GPU의 비동기 실행과 저정밀(FP8)을 활용한 최적화.
-2309.06180|2023|Kwon et al. (UC Berkeley)|Efficient Memory Management for Large Language Model Serving with PagedAttention|M|vLLM,PagedAttention,serving|KV 캐시를 OS의 가상 메모리 페이징처럼 관리해 낭비를 줄이는 vLLM의 핵심 기법.
+2309.06180|2023|Kwon et al. (UC Berkeley)|Efficient Memory Management for Large Language Model Serving with PagedAttention|V|vLLM,PagedAttention,serving|KV 캐시를 OS의 가상 메모리 페이징처럼 관리해 낭비를 줄이는 vLLM의 핵심 기법.
 2310.01889|2023|Liu et al.|Ring Attention with Blockwise Transformers for Near-Infinite Context|M|Ring-Attention,distributed,long-context|블록 단위 계산과 장치 간 링 통신을 겹쳐 시퀀스 길이를 장치 수에 비례해 확장.
 2309.17453|2023|Xiao et al.|Efficient Streaming Language Models with Attention Sinks|M|StreamingLLM,attention-sink|초기 몇 개 토큰이 ‘어텐션 싱크’ 역할을 한다는 관찰로, 유한 캐시만으로 무한 길이 스트리밍 생성을 가능하게 한 방법.
 2009.06732|2020|Tay et al.|Efficient Transformers: A Survey|M|survey,efficient-attention|효율적 Transformer 변형들을 분류·정리한 서베이.

@@ -11,7 +11,7 @@
 2411.15124|2024|Lambert et al. (AI2)|Tulu 3: Pushing Frontiers in Open Language Model Post-Training|V|Tulu-3,open-post-training,RLVR|공개 후처리 레시피(SFT·DPO·검증 가능한 보상 RL)와 데이터·평가·코드를 모두 공개해 개방형과 폐쇄형 사이 격차를 줄이려는 보고서. 부정적 결과도 공개.
 #@section: 선호 최적화 · RLHF · 헌법적 AI
 2203.02155|2022|Ouyang et al. (OpenAI)|Training language models to follow instructions with human feedback|M|InstructGPT,RLHF|지도 미세조정 후 인간 선호로 보상 모델을 만들어 PPO로 최적화한 InstructGPT. 1.3B 모델이 175B GPT-3보다 선호되었다.
-2212.08073|2022|Bai et al. (Anthropic)|Constitutional AI: Harmlessness from AI Feedback|M|Constitutional-AI,RLAIF|사람이 쓴 원칙(헌법)을 바탕으로 AI가 스스로 비판·수정하고 선호를 생성해 무해성을 학습시키는 방법.
+2212.08073|2022|Bai et al. (Anthropic)|Constitutional AI: Harmlessness from AI Feedback|V|Constitutional-AI,RLAIF|사람이 쓴 원칙(헌법)을 바탕으로 AI가 스스로 비판·수정하고 선호를 생성해 무해성을 학습시키는 방법.
 2309.00267|2023|Lee et al. (Google)|RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback|M|RLAIF|AI가 생성한 선호 라벨로 RLHF와 비슷한 결과를 내는지 검증한 연구.
 2305.18290|2023|Rafailov et al.|Direct Preference Optimization: Your Language Model is Secretly a Reward Model|V|DPO,preference-optimization|보상 모델·RL 루프 없이 선호 쌍에 대한 단순 분류형 손실로 정책을 직접 최적화하는 DPO.
 2310.12036|2023|Azar et al. (Google DeepMind)|A General Theoretical Paradigm to Understand Learning from Human Preferences|V|IPO,theory|RLHF·DPO를 통합하는 이론적 틀(ΨPO)과 과적합에 강한 IPO 제안.

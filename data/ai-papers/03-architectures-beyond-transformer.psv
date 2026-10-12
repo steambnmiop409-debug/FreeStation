@@ -26,7 +26,7 @@
 2406.06484|2024|Yang et al.|Parallelizing Linear Transformers with the Delta Rule over Sequence Length|V|DeltaNet,delta-rule,parallel-training|델타 규칙 기반 선형 Transformer(DeltaNet)를 시퀀스 길이 방향으로 병렬 학습하는 알고리즘을 제시해 중간 규모 언어모델링에 실용화.
 2412.06464|2024|Yang, Kautz, Hatamizadeh|Gated Delta Networks: Improving Mamba2 with Delta Rule|V|Gated-DeltaNet,gating,delta-rule|게이팅(빠른 망각)과 델타 규칙(정밀 갱신)을 결합한 구조. 언어모델링·상식추론·문맥 내 검색·길이 외삽에서 Mamba2와 DeltaNet을 앞선다고 보고(ICLR 2025).
 2502.10297|2025|-|DeltaProduct: Increasing the Expressivity of DeltaNet Through Products of Householders|V|DeltaNet,expressivity|DeltaNet의 표현력을 하우스홀더 행렬의 곱으로 확장하는 연구(ID·제목만 확인).
-2403.19887|2024|Lieber et al. (AI21)|Jamba: A Hybrid Transformer-Mamba Language Model|M|Jamba,hybrid,MoE|Transformer·Mamba 층과 MoE를 섞은 하이브리드 대형 모델. 긴 컨텍스트에서 메모리·처리량 이점을 강조.
+2403.19887|2024|Lieber et al. (AI21)|Jamba: A Hybrid Transformer-Mamba Language Model|V|Jamba,hybrid,MoE|Transformer·Mamba 층과 MoE를 섞은 하이브리드 대형 모델. 긴 컨텍스트에서 메모리·처리량 이점을 강조.
 2402.19427|2024|De et al. (Google DeepMind)|Griffin: Mixing Gated Linear Recurrences with Local Attention for Efficient Language Models|M|Griffin,Hawk,recurrence|게이트 선형 순환(Hawk)과 지역 어텐션을 혼합한 Griffin. 같은 크기 대비 적은 학습 토큰으로 경쟁력 있는 성능을 보고.
 2405.04517|2024|Beck et al.|xLSTM: Extended Long Short-Term Memory|M|xLSTM,LSTM|지수 게이팅과 행렬 메모리(mLSTM) 등으로 LSTM을 현대적으로 확장한 구조.
 2406.07522|2024|Ren et al. (Microsoft)|Samba: Simple Hybrid State Space Models for Efficient Unlimited Context Language Modeling|V|Samba,hybrid,sliding-window|Mamba·슬라이딩 윈도 어텐션·MLP를 반복 적층한 하이브리드. 순환 상태로 시퀀스를 압축하면서 최근 토큰의 정확한 회상을 유지한다는 설계.

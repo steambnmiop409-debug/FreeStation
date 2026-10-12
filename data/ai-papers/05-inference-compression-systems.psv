@@ -11,7 +11,7 @@
 2209.05433|2022|Micikevicius et al.|FP8 Formats for Deep Learning|M|FP8,low-precision|딥러닝용 8비트 부동소수점(E4M3/E5M2) 형식 제안.
 1510.00149|2015|Han et al.|Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding|M|pruning,quantization,compression|가지치기·양자화·허프만 부호화를 결합한 고전적 신경망 압축 파이프라인.
 #@section: 추측 디코딩·디코딩 가속
-2211.17192|2022|Leviathan et al. (Google)|Fast Inference from Transformers via Speculative Decoding|M|speculative-decoding|작은 초안 모델이 여러 토큰을 제안하고 큰 모델이 병렬 검증해 출력 분포를 바꾸지 않고 가속하는 방법.
+2211.17192|2022|Leviathan et al. (Google)|Fast Inference from Transformers via Speculative Decoding|V|speculative-decoding|작은 초안 모델이 여러 토큰을 제안하고 큰 모델이 병렬 검증해 출력 분포를 바꾸지 않고 가속하는 방법.
 2401.10774|2024|Cai et al.|Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads|M|Medusa,multi-head-decoding|별도 초안 모델 없이 여러 디코딩 헤드로 다음 여러 토큰을 병렬 예측.
 2401.15077|2024|Li et al.|EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty|M|EAGLE,speculative-sampling|특징(feature) 수준에서 초안을 예측하는 추측 샘플링으로 높은 수락률 달성.
 #@section: 가지치기·증류

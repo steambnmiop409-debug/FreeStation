@@ -11,7 +11,7 @@
 2502.20502|2025|-|On Benchmarking Human-Like Intelligence in Machines|V|benchmarking,human-likeness|기계의 인간 유사 지능을 벤치마크로 재는 방식을 비판적으로 다룬 2025년 연구(ID·제목만 확인).
 2503.23923|2025|-|What the F*ck Is Artificial General Intelligence?|V|AGI-definition,position|AGI 개념 자체를 정리하는 2025년 글(ID·제목만 확인).
 #@section: 범용 에이전트 · 개방형 학습 · 지속 학습
-2205.06175|2022|Reed et al. (DeepMind)|A Generalist Agent|M|Gato,generalist-agent,multi-task|하나의 Transformer와 같은 가중치로 게임, 이미지 캡션, 대화, 로봇 팔 제어 등 600여 과제를 수행한 Gato. 범용 에이전트의 초기 사례이나 개별 과제 전문 모델보다 우월하지는 않았다.
+2205.06175|2022|Reed et al. (DeepMind)|A Generalist Agent|V|Gato,generalist-agent,multi-task|하나의 Transformer와 같은 가중치로 게임, 이미지 캡션, 대화, 로봇 팔 제어 등 600여 과제를 수행한 Gato. 범용 에이전트의 초기 사례이나 개별 과제 전문 모델보다 우월하지는 않았다.
 2107.12808|2021|Open-Ended Learning Team (DeepMind)|Open-Ended Learning Leads to Generally Capable Agents|V|XLand,open-ended-learning,generally-capable|절차적으로 생성되는 3D 세계·다인 게임 환경 XLand에서 학습 과제를 계속 바꾸는 개방형 학습으로, 사람이 풀 수 있는 모든 평가 레벨에서 보상을 얻는 에이전트를 만들었다. 고정 과제 분포의 단순 RL은 실패.
 2301.07608|2023|Adaptive Agents Team (DeepMind)|Human-Timescale Adaptation in an Open-Ended Task Space|V|AdA,in-context-RL,XLand|10^40개 이상의 가능한 과제를 가진 XLand 확장판에서 학습해, 보지 못한 손수 설계 과제에 사람과 비슷한 시간 척도로 적응하는 에이전트.
 2406.04268|2024|Hughes et al. (Google DeepMind)|Open-Endedness is Essential for Artificial Superhuman Intelligence|V|open-endedness,ASI,position|참신성과 학습가능성에 기반한 개방형(open-ended) 정의를 제시하고, 초인적 지능에는 개방형 시스템이 필수적이라 주장하는 입장 논문. 파운데이션 모델 기반 경로와 안전 함의도 논의(ICML position).

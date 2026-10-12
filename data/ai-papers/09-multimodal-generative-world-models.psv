@@ -25,7 +25,7 @@
 2503.20215|2025|Qwen Team|Qwen2.5-Omni Technical Report|V|omni-modal,streaming-speech|텍스트·이미지·오디오·비디오를 이해하고 스트리밍 음성을 출력하는 옴니 모델(검색 결과 기준).
 2509.17765|2025|Qwen Team|Qwen3-Omni Technical Report|V|omni-modal|Qwen3 기반 옴니 모달 모델 보고서(ID·제목만 확인).
 2312.14238|2023|Chen et al. (OpenGVLab)|InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks|M|InternVL,VLM|대형 비전 파운데이션 모델을 LLM과 정렬한 InternVL.
-2405.09818|2024|Chameleon Team (Meta)|Chameleon: Mixed-Modal Early-Fusion Foundation Models|M|Chameleon,early-fusion,token-based|이미지와 텍스트를 모두 이산 토큰으로 바꿔 처음부터 하나의 Transformer로 학습하는 초기 융합 모델.
+2405.09818|2024|Chameleon Team (Meta)|Chameleon: Mixed-Modal Early-Fusion Foundation Models|V|Chameleon,early-fusion,token-based|이미지와 텍스트를 모두 이산 토큰으로 바꿔 처음부터 하나의 Transformer로 학습하는 초기 융합 모델.
 2409.18869|2024|Wang et al. (BAAI)|Emu3: Next-Token Prediction is All You Need|V|Emu3,unified,next-token|이미지·텍스트·비디오를 이산 토큰화해 하나의 Transformer를 다음 토큰 예측만으로 학습. 확산이나 합성 구조 없이 SDXL·LLaVA-1.6을 능가한다고 보고.
 2510.26583|2025|-|Emu3.5: Native Multimodal Models are World Learners|V|Emu3.5,world-learner|Emu3를 10조 토큰 이상 멀티모달 데이터로 확장한 후속(검색 결과 기준).
 2408.11039|2024|Zhou et al. (Meta)|Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model|V|Transfusion,AR+diffusion|하나의 Transformer로 텍스트는 다음 토큰 예측, 이미지는 확산 손실로 함께 학습. 텍스트는 인과 마스크, 이미지는 양방향 어텐션 사용.
