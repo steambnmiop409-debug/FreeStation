@@ -1,11 +1,11 @@
 #@title: 스케일링 법칙 · 데이터 · 사전학습 방법론
 #@intro: 모델·데이터·연산을 어떻게 키워야 하는지, 어떤 데이터가 좋은지에 대한 실험적 연구. 차세대 모델 설계의 근거가 되는 경험 법칙과 그 반례를 함께 수록했다.
 #@section: 스케일링 법칙
-2001.08361|2020|Kaplan et al. (OpenAI)|Scaling Laws for Neural Language Models|M|scaling-law,power-law|언어모델 손실이 모델 크기·데이터·연산에 대해 거듭제곱 법칙을 따른다는 것을 광범위한 실험으로 보인 논문.
-2203.15556|2022|Hoffmann et al. (DeepMind)|Training Compute-Optimal Large Language Models|M|Chinchilla,compute-optimal|주어진 연산 예산에서 모델 크기와 토큰 수를 같은 비율로 늘려야 한다고 주장(Chinchilla). 당시 대형 모델들이 ‘토큰 부족’ 상태였음을 지적했다.
+2001.08361|2020|Kaplan et al. (OpenAI)|Scaling Laws for Neural Language Models|V|scaling-law,power-law|언어모델 손실이 모델 크기·데이터·연산에 대해 거듭제곱 법칙을 따른다는 것을 광범위한 실험으로 보인 논문.
+2203.15556|2022|Hoffmann et al. (DeepMind)|Training Compute-Optimal Large Language Models|V|Chinchilla,compute-optimal|주어진 연산 예산에서 모델 크기와 토큰 수를 같은 비율로 늘려야 한다고 주장(Chinchilla). 당시 대형 모델들이 ‘토큰 부족’ 상태였음을 지적했다.
 2010.14701|2020|Henighan et al. (OpenAI)|Scaling Laws for Autoregressive Generative Modeling|M|scaling-law,multimodal|이미지·비디오·수학 등 여러 도메인의 자기회귀 모델에서도 유사한 스케일링 법칙이 성립함을 보인 연구.
 2102.01293|2021|Hernandez et al. (OpenAI)|Scaling Laws for Transfer|M|transfer,fine-tuning|사전학습 데이터가 미세조정 성능에 기여하는 ‘유효 전이 데이터’가 스케일링 법칙을 따른다는 분석.
-2305.16264|2023|Muennighoff et al.|Scaling Data-Constrained Language Models|M|data-repetition,data-wall|고유 데이터가 한정될 때 같은 데이터를 반복(epoch) 학습해도 약 4 epoch까지는 손실 증가가 작다는 실험과 반복을 고려한 스케일링 법칙.
+2305.16264|2023|Muennighoff et al.|Scaling Data-Constrained Language Models|V|data-repetition,data-wall|고유 데이터가 한정될 때 같은 데이터를 반복(epoch) 학습해도 약 4 epoch까지는 손실 증가가 작다는 실험과 반복을 고려한 스케일링 법칙.
 2206.14486|2022|Sorscher et al.|Beyond neural scaling laws: beating power law scaling via data pruning|M|data-pruning,data-efficiency|좋은 데이터 선별 기준이 있으면 거듭제곱 법칙보다 빠른 지수적 감소 스케일링이 이론상 가능하다는 분석과 실험.
 2206.07682|2022|Wei et al. (Google)|Emergent Abilities of Large Language Models|M|emergence,scaling|작은 모델에서는 나타나지 않다가 특정 규모에서 갑자기 나타나는 능력을 정리한 논문.
 2304.15004|2023|Schaeffer et al.|Are Emergent Abilities of Large Language Models a Mirage?|M|emergence,metrics|‘창발’로 보이는 현상이 비선형·불연속 평가 지표 선택의 산물일 수 있음을 지적한 반론.

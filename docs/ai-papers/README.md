@@ -1,6 +1,6 @@
 # 차세대 AI · 실험적 논문 자료 모음
 
-총 **554편** (arXiv 외 자료 10편 포함) · ✅ 검증(V) 220편 · 🔶 기억기반(M) 334편
+총 **576편** (arXiv 외 자료 10편 포함) · ✅ 검증(V) 253편 · 🔶 기억기반(M) 323편
 
 ## 읽는 법
 
@@ -14,22 +14,23 @@
 
 | # | 카테고리 | 편수 | 검증(V) |
 |---|---|---|---|
-| 00 | [AGI · 범용 지능 · 재귀적 자기개선 · AGI 안전](00-agi-and-general-intelligence.md) | 54 | 47 |
-| 01 | [파운데이션 모델과 기술 보고서](01-foundation-models.md) | 38 | 13 |
-| 02 | [스케일링 법칙 · 데이터 · 사전학습 방법론](02-scaling-data-pretraining.md) | 22 | 3 |
+| 00 | [AGI · 범용 지능 · 재귀적 자기개선 · AGI 안전](00-agi-and-general-intelligence.md) | 54 | 51 |
+| 01 | [파운데이션 모델과 기술 보고서](01-foundation-models.md) | 38 | 14 |
+| 02 | [스케일링 법칙 · 데이터 · 사전학습 방법론](02-scaling-data-pretraining.md) | 22 | 6 |
 | 03 | [트랜스포머 이후의 아키텍처 (SSM · 선형 어텐션 · 순환 · 확산 언어모델 · 잠재 추론)](03-architectures-beyond-transformer.md) | 63 | 37 |
 | 04 | [전문가 혼합(MoE) · 효율적 어텐션 · 장문 컨텍스트](04-moe-attention-long-context.md) | 36 | 10 |
 | 05 | [추론 가속 · 양자화 · 압축 · 학습 시스템 · 옵티마이저](05-inference-compression-systems.md) | 34 | 6 |
-| 06 | [추론(Reasoning) · 테스트 시점 연산 · 강화학습](06-reasoning-test-time-compute-rl.md) | 32 | 13 |
-| 07 | [사후학습 · 정렬(Alignment) · 파라미터 효율 미세조정](07-post-training-alignment-peft.md) | 26 | 4 |
+| 06 | [추론(Reasoning) · 테스트 시점 연산 · 강화학습](06-reasoning-test-time-compute-rl.md) | 32 | 14 |
+| 07 | [사후학습 · 정렬(Alignment) · 파라미터 효율 미세조정](07-post-training-alignment-peft.md) | 26 | 5 |
 | 08 | [에이전트 · 도구 사용 · RAG · 임베딩 · 자기 개선 시스템](08-agents-tools-rag-memory.md) | 65 | 22 |
-| 09 | [멀티모달 · 생성 모델 · 월드 모델](09-multimodal-generative-world-models.md) | 59 | 21 |
+| 09 | [멀티모달 · 생성 모델 · 월드 모델](09-multimodal-generative-world-models.md) | 59 | 22 |
 | 10 | [로보틱스 · 구현형(Embodied) AI · 비전-언어-행동 모델](10-robotics-embodied.md) | 13 | 8 |
 | 11 | [해석가능성 · 모델 안전 · 견고성 · 사고 사슬 충실성](11-interpretability-safety-robustness.md) | 43 | 19 |
 | 12 | [벤치마크 · 평가 방법론](12-benchmarks-evaluation.md) | 16 | 2 |
 | 13 | [과학 · 코드 · 수학을 위한 AI](13-science-code-math-ai.md) | 21 | 11 |
 | 14 | [이론 · 실험적 패러다임 · 비표준 구조](14-theory-novel-paradigms.md) | 32 | 4 |
-| | **합계** | **554** | **220** |
+| 15 | [후속 비판 · 재현 · 쟁점 논문](15-critiques-replications-debates.md) | 22 | 22 |
+| | **합계** | **576** | **253** |
 
 ## 연도 분포
 
@@ -48,9 +49,13 @@
 | 2021 | 38 |
 | 2022 | 82 |
 | 2023 | 135 |
-| 2024 | 124 |
-| 2025 | 91 |
-| 2026 | 7 |
+| 2024 | 128 |
+| 2025 | 103 |
+| 2026 | 13 |
+
+## 심층 분석
+
+주제별로 논문을 묶어 메커니즘·재현·비판·해석까지 다룬 15편이 [deep-dives/README.md](deep-dives/README.md)에 있습니다. 본문 열람이 불가능한 환경에서 작성되어 문장마다 근거 등급([A]/[K]/[J])을 표기했습니다.
 
 ## 범위와 한계
 

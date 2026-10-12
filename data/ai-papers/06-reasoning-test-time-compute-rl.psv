@@ -28,7 +28,7 @@
 1707.06347|2017|Schulman et al. (OpenAI)|Proximal Policy Optimization Algorithms|M|PPO|클리핑된 목적함수를 쓰는 정책 경사 알고리즘. RLHF의 표준 기반 알고리즘.
 1706.03741|2017|Christiano et al.|Deep Reinforcement Learning from Human Preferences|M|RLHF,reward-model|인간의 쌍별 선호로 보상 모델을 학습해 RL에 쓰는 RLHF의 원형.
 2402.14740|2024|Ahmadian et al. (Cohere)|Back to Basics: Revisiting REINFORCE Style Optimization for Learning from Human Feedback in LLMs|V|RLOO,REINFORCE|PPO의 복잡한 구성요소 없이 REINFORCE 계열(RLOO)이 더 단순하고 효과적일 수 있음을 보인 연구.
-2402.03300|2024|Shao et al. (DeepSeek)|DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models|M|GRPO,math|가치 함수 없이 그룹 상대 보상으로 정책을 갱신하는 GRPO를 제안하고 수학 특화 사전학습 데이터를 구축.
+2402.03300|2024|Shao et al. (DeepSeek)|DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models|V|GRPO,math|가치 함수 없이 그룹 상대 보상으로 정책을 갱신하는 GRPO를 제안하고 수학 특화 사전학습 데이터를 구축.
 2503.14476|2025|Yu et al. (ByteDance)|DAPO: An Open-Source LLM Reinforcement Learning System at Scale|V|DAPO,RLVR,GRPO-variant|Decoupled Clip과 Dynamic Sampling 등 4가지 기법으로 Qwen2.5-32B 기반 AIME 2024 50점 달성. 소박한 GRPO는 30점에 그쳤고 원인은 엔트로피 붕괴·보상 잡음·불안정이라고 분석.
 2503.20783|2025|Liu et al.|Understanding R1-Zero-Like Training: A Critical Perspective|V|Dr-GRPO,R1-Zero|R1-Zero식 학습을 기반 모델과 RL 두 측면에서 분석. GRPO의 길이 편향(오답 응답이 길어짐)을 지적하고 Dr. GRPO를 제안, 최소 레시피로 AIME 2024 43.3%를 보고.
 2503.18892|2025|-|SimpleRL-Zoo: Investigating and Taming Zero Reinforcement Learning for Open Base Models in the Wild|V|zero-RL,base-models|다양한 기반 모델에서 ‘zero RL’ 학습을 조사한 연구(ID·제목만 확인).

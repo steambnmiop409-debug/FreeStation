@@ -1,0 +1,30 @@
+#@title: 후속 비판 · 재현 · 쟁점 논문
+#@intro: 앞선 문서의 주요 주장에 대해 재현을 시도하거나 반론·보완을 제시한 연구. 심층 분석(docs/ai-papers/deep-dives)에서 ‘이 결과를 얼마나 믿을 수 있는가’를 판단하는 근거로 쓰인다. 요약은 검색에서 확인된 범위로 한정했고, ‘ID·제목만 확인’이라고 적은 항목은 내용을 보지 못했다.
+#@section: 스케일링 법칙의 재현 · 재검증
+2404.10102|2024|Besiroglu, Erdil, Barnett, You (Epoch AI)|Chinchilla Scaling: A replication attempt|V|Chinchilla,replication,scaling-law|Hoffmann et al.의 세 번째 접근(파라메트릭 손실 적합)을 논문 그림에서 복원한 데이터로 재현 시도. 보고된 추정치가 앞의 두 접근과 불일치하고 복원 데이터에 잘 맞지 않으며, 보고된 신뢰구간이 너무 좁아 60만 회 이상의 실험이 필요한 수준(원 연구는 500회 미만으로 추정)이라고 지적. 원인으로 손실 스케일 선택 때문에 옵티마이저가 수렴 전 멈춘 점과 본문 수치의 반올림을 꼽았고, 재유도한 결과는 앞의 두 접근과 부합한다.
+2406.12907|2024|-|Reconciling Kaplan and Chinchilla Scaling Laws|V|Kaplan,Chinchilla,reconciliation|Kaplan과 Chinchilla가 서로 다른 최적 배분을 낸 이유를 조화시키려는 연구(ID·제목만 확인).
+2509.23963|2025|-|Evaluating the Robustness of Chinchilla Compute-Optimal Scaling|V|Chinchilla,robustness|Chinchilla 연산 최적 스케일링의 견고성을 평가한 연구. 검색 결과상 Besiroglu 등의 적합 코드를 재사용하고 80% 구간을 보고한다.
+#@section: 추론 RL(RLVR)의 한계 · 범위 논쟁
+2504.13837|2025|Yue et al.|Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?|V|RLVR,pass@k,base-model|RLVR로 학습한 모델이 작은 k(예: 1)에서는 기반 모델을 앞서지만 k가 크면 기반 모델의 pass@k가 더 높다고 보고하며, 관찰된 추론 능력이 기반 모델에서 비롯되고 그에 의해 한정된다고 결론.
+2505.24864|2025|-|ProRL: Prolonged Reinforcement Learning Expands Reasoning Boundaries in Large Language Models|V|RLVR,prolonged-RL|회의적 결론이 방법론적 제약에서 비롯될 수 있다고 보며, 충분히 오래 RL을 하면 기반 모델에 없던 새로운 풀이 경로를 발견할 수 있다고 주장(검색 결과 기준).
+2512.07783|2025|-|On the Interplay of Pre-Training, Mid-Training, and RL on Reasoning Language Models|V|RLVR,mid-training|검색 결과 기준, 분포 내 과제에서 RL은 pass@128 기준으로 기반 모델을 넘지 못하지만 기반 모델의 역량을 벗어난 더 어려운 과제에서는 pass@128을 일관되게 개선한다고 보고.
+2605.06241|2026|-|Rethinking RL for LLM Reasoning: It's Sparse Policy Selection, Not Capability Learning|V|RLVR,policy-selection|RL이 새 능력을 학습하기보다 희소한 정책 선택을 한다는 관점의 2026년 연구(ID·제목만 확인).
+2507.14419|2025|-|It's Not That Simple. An Analysis of Simple Test-Time Scaling|V|test-time-scaling,s1,analysis|s1의 단순 테스트 시점 스케일링을 분석한 연구(ID·제목만 확인).
+2502.12215|2025|-|Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?|V|test-time-scaling,o1-like|o1류 모델이 실제로 테스트 시점 스케일링 능력을 갖는지 되묻는 연구(ID·제목만 확인).
+2406.02900|2024|-|Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms|V|reward-overoptimization,DPO,scaling-law|명시적 프록시 보상 모델이 없는 직접 정렬 알고리즘으로 Gao et al.의 보상 과최적화 분석을 확장하고, GPT-4 승률을 골드 보상의 대용으로 사용.
+#@section: 소형 재귀 추론 모델 검증
+2510.00355|2025|-|Hierarchical Reasoning Models: Perspectives and Misconceptions|V|HRM,critique,Sudoku,Maze|원 HRM의 설계 선택을 비판적으로 검토하고 Sudoku-Extreme·Maze-Hard에서 기존 보고치를 넘는 변형을 제시. v1 제목은 ‘A Critical Supplementary Material’이었다.
+2601.10679|2026|-|Are Your Reasoning Models Reasoning or Guessing? A Mechanistic Analysis of Hierarchical Reasoning Models|V|HRM,mechanistic|HRM이 실제로 추론하는지 추측하는지를 기계적으로 분석한 2026년 연구(ID·제목만 확인).
+2609.22197|2026|-|Dissecting Hierarchical Reasoning Models: A Mechanistic Study|V|HRM,mechanistic|검색 결과상 HRM이 퍼즐별 해 상태를 반복적으로 정제한다고 논증하는 기계적 연구.
+#@section: 테스트 시점 학습 · JEPA 계열 검증
+2602.21204|2026|-|Test-Time Training with KV Binding Is Secretly Linear Attention|V|TTT,linear-attention,equivalence|KV 결합 방식의 테스트 시점 학습이 사실상 선형 어텐션이라는 재해석(제목 기준, 본문 미검토).
+2410.19560|2024|-|Connecting Joint-Embedding Predictive Architecture with Contrastive Self-supervised Learning|V|JEPA,contrastive|I-JEPA를 대조 학습과 연결하며, 붕괴 방지와 평균 패치 표현 측면의 한계를 지적(검색 결과 기준).
+2509.14252|2025|-|LLM-JEPA: Large Language Models Meet Joint Embedding Predictive Architectures|V|JEPA,LLM|JEPA 목표를 언어모델에 적용하려는 2025년 연구(ID·제목만 확인).
+#@section: 안전 연구의 후속 · 반례
+2506.18032|2025|-|Why Do Some Language Models Fake Alignment While Others Don't?|V|alignment-faking,model-comparison|모델에 따라 정렬 위장이 나타나는 정도가 다른 이유를 다룬 2025년 연구(ID·제목만 확인).
+2511.18397|2025|-|Natural emergent misalignment from reward hacking in production RL|V|emergent-misalignment,reward-hacking|상용 규모 RL에서 보상 해킹으로부터 자연스럽게 나타나는 창발적 오정렬을 다룬 2025년 연구(ID·제목만 확인).
+2510.19851|2025|-|Can Reasoning Models Obfuscate Reasoning? Stress-Testing Chain-of-Thought Monitorability|V|CoT-monitoring,obfuscation|추론 모델이 추론을 난독화할 수 있는지 사고 사슬 모니터링을 압박 시험한 연구(ID·제목만 확인).
+2603.05706|2026|-|Reasoning Models Struggle to Control their Chains of Thought|V|CoT-controllability|추론 모델이 자신의 사고 사슬을 통제하기 어렵다는 2026년 연구(ID·제목만 확인).
+#@section: 평가 · 자동 연구의 재검증
+2506.20803|2025|-|The Ideation–Execution Gap: Execution Outcomes of LLM-Generated versus Human Research Ideas|V|research-ideation,execution|43명의 전문가가 아이디어를 실제로 실행해 본 후속 연구. 실행 후 LLM 아이디어의 평가 점수가 사람 아이디어보다 더 크게 하락해 아이디어 단계의 격차가 사라졌다고 보고.
+2602.13964|2026|-|HLE-Verified (제목 일부 생략)|V|HLE,verification|Humanity's Last Exam에 문제 있는 문항이 상당수 있다는 커뮤니티 분석에 대응해 검증·개정 작업을 보고(검색 결과 기준, 정식 제목 일부 확인 못함).
